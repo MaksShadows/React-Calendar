@@ -1,6 +1,9 @@
+@import "./header.scss";
+@import "./pop.scss";
+@import "./sidebar.scss";
+
 * {
   box-sizing: border-box;
-  outline: none;
 }
 
 html {
