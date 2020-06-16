@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  height: calc(100vh - 171px);
+   overflow: auto;
+}
+
+
+.column-day {
+  position: relative;
+  &__item{
+      width: 50%;
+      height: 60px;
+      border-left: 1px solid #dadce0;
+      border-bottom: 1px solid #dadce0;
+  }
+}
+.saidbar {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  color: #70757a;
+
+}
+ .time-column__line {
+  height: 42px;
+  width: 55px;
+  display: block;
+  margin: 20px 0 0 10px;
+}

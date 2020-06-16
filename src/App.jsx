@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Popup from './components/Popup';
-//import Main from "./components/Main";
+import Main from "./components/Main";
 
 
 
@@ -16,6 +16,7 @@ class App extends Component {
       return (
           <>
             <Header />
+            <Main />
             <Popup />
           </>
       );
