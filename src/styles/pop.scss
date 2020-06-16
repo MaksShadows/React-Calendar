@@ -18,12 +18,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 16px 8px 16px 8px;
+  padding: 20px 8px 16px 8px;
   border-radius: 8px;
   background-color: #fff;
   &__picker {
       display: flex;
-      margin: 45px 0;
+      margin: 45px 10px;
       align-items: center;
       position: relative;
       left: 7px;
@@ -37,13 +37,16 @@
 
 .event {
   &__name {
-      border: none;
-      border-bottom: 2px solid #d5d5d5;
-      width: 90%;
-      font-size: 20px;
-      letter-spacing: 2px;
-      outline: none;
-      margin-top: 30px;
+    border: none;
+    border-bottom: 2px solid #d5d5d5;
+    width: 90%;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-style: italic;
+    outline: none;
+    margin-top: 15px;
+    margin-left: 10px;
+
   }
   &__description {
       border: none;
@@ -90,16 +93,19 @@
 }
 
 .multiline {
+  margin: -35px 30px 0 14px;
   cursor: pointer;
   &__text {
       color: rgb(53, 53, 56);
       border: none;
+      margin-bottom: 10px;
   }
 
 }
 .centerData{
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  //justify-content: space-around;
 }
 
 .close {
@@ -107,18 +113,6 @@
   width: 25px;
   height: 25px;
   margin-top: 10px;
-}
-
-.event__btn-delete {
-  display: none;
-  cursor: pointer;
-  display: none;
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-} 
-.btn-delete_block{
-  display: block;
 }
 
 
@@ -142,8 +136,3 @@
   height: 1.2em;
 }
 
-.buttons{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
