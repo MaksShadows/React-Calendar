@@ -6,7 +6,9 @@ const SaidBar = () => {
 
     return (
       <div key={timeItem} className="time__day-hour">
-        {`${timeItem > 10 ? timeItem : 0 }:00`}
+        {`${ timeItem  <= 10 ?
+         `${timeItem}:00` :
+         `${timeItem}:00`}`}
       </div>
     );
   });

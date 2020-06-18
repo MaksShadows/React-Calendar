@@ -7,17 +7,28 @@ import Main from "./components/main/Main";
 
 class App extends Component {
 
-  state = {
-      
-  };
+constructor() {
+    super();
+    this.state = {
+      popupShown: false,
+    };
+  }
+
+    handlePopup = () => {
+       this.setState({
+       popupShown: !this.state.popupShown,
+     });
+     };
 
 
   render() {
       return (
           <>
-            <Header />
+            <Header/>
             <Main />
-            <Popup />
+             {this.state.popupShown && (
+                    <Popup />
+                )}
           </>
       );
   };

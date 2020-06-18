@@ -3,8 +3,6 @@ import WeekDays from "./WeekDays";
 import  getDisplayedMonth  from '../utilities'
 
 
-
-
 const Header =({onCreate,onToday, nextWeek, prewWeek, month }) => {
   return (
     <header className="header">

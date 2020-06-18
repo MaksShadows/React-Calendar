@@ -3,12 +3,13 @@ import ColumnDay from "./ColumnDay";
 import SaidBar from "./SaidBar.jsx";
 
 
-const Main = () => {
+const Main = ({showPopup}) => {
   return (
     <section className="main">
       <div className="main-wrapper">
       <SaidBar />
-       <ColumnDay />
+       <ColumnDay
+         showPopup={showPopup} />
       </div>
     </section>
   );
