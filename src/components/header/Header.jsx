@@ -1,9 +1,10 @@
 import React from "react";
 import WeekDays from "./WeekDays";
+import Days from './Days';
 import  getDisplayedMonth  from '../utilities'
 
 
-const Header =({onCreate,onToday, nextWeek, prewWeek, month }) => {
+const Header =({onCreate,onToday, nextWeek, prevWeek, month, week }) => {
   return (
     <header className="header">
        <div className="navigation">
@@ -12,13 +13,13 @@ const Header =({onCreate,onToday, nextWeek, prewWeek, month }) => {
       <button className="navigation-today"onClick={onToday} >Today</button>
        <div className ="navigate__arows">
           <div className="navigate__arows_left" onClick={nextWeek}></div>
-           <div className="navigate__arows_right"onClick={prewWeek}></div>
+           <div className="navigate__arows_right"onClick={prevWeek}></div>
         </div>
         <div className="navigate__MonthAndYear">{getDisplayedMonth(month)}</div>
       </div>
-      <WeekDays />
+      <WeekDays  />
+      <Days week={week} />
     </header>
-        
   )
 };
 

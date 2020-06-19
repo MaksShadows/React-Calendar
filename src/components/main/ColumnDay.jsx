@@ -8,8 +8,7 @@ const ColumnDay = () => {
   
     return (
       <div key={arg} className="column-day">
-        
-        <ColumnSection />
+        <ColumnSection   />
       </div>
     );
   });

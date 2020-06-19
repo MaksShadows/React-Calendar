@@ -14,6 +14,8 @@ class WeekDays  extends Component {
     });
     return <div className="week">{daysOfWeekList}</div>;
   }
+
+  
 }
 
 export default WeekDays ;

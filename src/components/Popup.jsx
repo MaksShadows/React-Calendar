@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Popup = () => {
+const Popup = ({closePop}) => {
     return (
       <div className="popup-layer">
       <form className="popup event"  >
-        <span className="popup__btn-close"><img className="close" src="https://img.icons8.com/color/48/000000/close-window.png" alt="close" /></span>
+        <span className="popup__btn-close" onClick={closePop} ><img className="close" src="https://img.icons8.com/color/48/000000/close-window.png" alt="close" /></span>
         <input className="event__name" name="eventName" type="text" placeholder="Add title " />
         {/* <div className="popup__color-picker">
           <label className="popup__color-picker_label">

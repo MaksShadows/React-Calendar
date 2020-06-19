@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './components/header/Header';
 import Popup from './components/Popup';
 import Main from "./components/main/Main";
+import moment from "moment";
+//import  getStartOfWeek  from "./components/utilities";
 
 
 
@@ -11,24 +13,49 @@ constructor() {
     super();
     this.state = {
       popupShown: false,
+      monday : moment().startOf("isoWeek"),
     };
   }
 
     handlePopup = () => {
        this.setState({
-       popupShown: !this.state.popupShown,
+       popupShown: true,
      });
      };
+
+      closePop = () => {
+       this.setState({
+       popupShown: false,
+     });
+     };
+
+     nextWeek = () => {
+      this.setState({
+        monday:  moment(this.state.firstMonday).add(7, "days")
+      });
+    };
+  
+    prevWeek = () => {
+      this.setState({
+        monday:  moment(this.state.firstMonday).subtract(7, "days")
+      })
+    };
+  
 
 
   render() {
       return (
           <>
-            <Header/>
-            <Main />
+            <Header
+            week={this.state.monday}
+            nextWeek={this.state.nextWeek}
+            prevWeek={this.state.prevWeek}
+            onCreate={this.handlePopup} />
+            <Main onCreate={this.handlePopup}  />
              {this.state.popupShown && (
-                    <Popup />
-                )}
+                    <Popup 
+                      closePop={this.closePop} />         
+             )}
           </>
       );
   };
