@@ -29,12 +29,6 @@ constructor() {
      });
      };
 
-     popupSwitcher = () => {
-      const { popupShown } = this.state;
-      this.setState({ popupShown: !popupShown });
-    };
-  
-
      nextWeek = () => {
       this.setState({
         monday:  moment(this.state.firstMonday).add(7, "days")
@@ -57,11 +51,9 @@ constructor() {
             prevWeek={this.state.prevWeek}
             onCreate={this.handlePopup} />
             <Main
-            showPopup={this.handlePopup}
-             onCreate={this.handlePopup}  />
+            showPopup={this.handlePopup}  />
              {this.state.popupShown && (
                     <Popup 
-                    
                       closePop={this.closePop} />         
              )}
           </>
