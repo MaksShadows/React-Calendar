@@ -6,11 +6,13 @@ import SaidBar from "./SaidBar.jsx";
 const Main = ({showPopup}) => {
   return (
     <section className="main">
-      <div className="main-wrapper">
+     <div className="fixed">
+     <div className="main-wrapper">
       <SaidBar />
        <ColumnDay
          showPopup={showPopup} />
       </div>
+     </div>
     </section>
   );
 };
