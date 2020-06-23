@@ -31,13 +31,13 @@ constructor() {
 
      nextWeek = () => {
       this.setState({
-        monday:  moment(this.state.firstMonday).add(7, "days")
+        monday:  moment(this.state.monday).add(7, "days")
       });
     };
   
     prevWeek = () => {
       this.setState({
-        monday:  moment(this.state.firstMonday).subtract(7, "days")
+        monday:  moment(this.state.monday).subtract(7, "days")
       })
     };
 
