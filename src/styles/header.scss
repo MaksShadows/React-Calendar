@@ -83,9 +83,13 @@
     border-radius: 100%;
 
     &__current {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
       width: 46px;
       height: 46px;
-        background-color: blue;
+     background-color: blue;
     }
 }
   
