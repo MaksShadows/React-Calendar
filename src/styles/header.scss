@@ -1,125 +1,115 @@
 .header {
-    display: flex;
-    flex-direction: column;
-    margin: 15px 20px;
-    position: fixed;
-    width: 100%;
-    z-index: 50;
-  
-    .navigation {
-        display: flex;
-        align-items: center;
-        height: 64px;
-        border-bottom: 1px solid #00000024;
-        width: 100%;
-  
-        &-create{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 130px;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-    box-shadow: 0 5px 28px rgba(0,0,0,0.25);
-    background-color: white;
-    margin-right: 50px;
-    font-size: 18px;
-    &:hover{
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 15px 15px rgba(0,0,0,0.22);
-        transition: 1s;
-        cursor: pointer;
-    }
-  }
-  
-  &-today{
-    border: 1px solid grey;
-    border-radius: 3px;
-    height: 40px;
-    width: 90px;
-    background-color: transparent;
-    outline: none;
-    margin-right: 50px;
-    font-weight: 700;
-    &:hover{
-        cursor: pointer;
-        background-color: #d5d5d5;
-        transition: 1s;
-    }
-  }
-  
-    }
-  
-    .week {
-        display: flex;
-        justify-content: space-around;
-        margin-left: 70px;
-        margin-bottom: 0;
-        margin-top: 10px;
-  
-      &-days{
-        font-size: 16px;
-        opacity: 0.5;
-      }
+  display: flex;
+  flex-direction: column;
+  margin: 15px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
 
-    }
-  }
-
-  .weeks {
-    display: flex;
-    justify-content: space-around;
-    margin-left: 70px;
-    margin-top: 8px;
-  }
-  .day-week {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    //height: 100%;
-    font-size: 24px;
-    color: black;
-    border-radius: 100%;
-
-    &__current {
+  .navigation {
       display: flex;
-      justify-content: center;
       align-items: center;
-      border-radius: 50%;
-      width: 46px;
-      height: 46px;
-     background-color: blue;
-    }
+      height: 64px;
+      border-bottom: 1px solid #00000024;
+      width: 100%;
+
+      &-create{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 130px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 28px rgba(0,0,0,0.25);
+  background-color: white;
+  margin-right: 50px;
+  font-size: 18px;
+  &:hover{
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 15px 15px rgba(0,0,0,0.22);
+      transition: 1s;
+      cursor: pointer;
+  }
 }
-  
-  .fa-plus{
-    margin-right: 10px;
+
+&-today{
+  border: 1px solid grey;
+  border-radius: 3px;
+  height: 40px;
+  width: 90px;
+  background-color: transparent;
+  outline: none;
+  margin-right: 50px;
+  font-weight: 700;
+  &:hover{
+      cursor: pointer;
+      background-color: #d5d5d5;
+      transition: 1s;
   }
-  
-  
-  .navigate__arows{
+}
+
+  }
+}
+
+.week {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 70px;
+  margin-top: 10px;
+}
+.week-days {
+  font-size: 16px;
+   opacity: 0.5;
+   padding-bottom: 10px;
+}
+.day-week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  //height: 100%;
+  font-size: 24px;
+  color: black;
+  border-radius: 100%;
+
+  &__current {
     display: flex;
-    margin-right: 50px;
-    cursor: pointer;
-    &_right{
-        background-image: url("https://img.icons8.com/material-sharp/24/000000/forward.png");
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        background-position: center;
-        background-size: auto;
-    
-    }
-    &_left{
-        background-image: url("https://img.icons8.com/material-sharp/24/000000/forward.png");
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        transform: rotate(180deg);
-        background-position: center;
-        background-size: auto;
-        
-    }
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 46px;
+   background-color: blue;
   }
+}
+
+.fa-plus{
+  margin-right: 10px;
+}
+
+
+.navigate__arows{
+  display: flex;
+  margin-right: 50px;
+  cursor: pointer;
+  &_right{
+      background-image: url("https://img.icons8.com/material-sharp/24/000000/forward.png");
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: auto;
   
+  }
+  &_left{
+      background-image: url("https://img.icons8.com/material-sharp/24/000000/forward.png");
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      transform: rotate(180deg);
+      background-position: center;
+      background-size: auto;
+      
+  }
+}

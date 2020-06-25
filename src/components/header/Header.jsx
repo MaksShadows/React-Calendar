@@ -1,6 +1,5 @@
 import React from "react";
-import WeekDays from "./WeekDays";
-import Days from './Days';
+import Week from './Week';
 import  getDisplayedMonth  from '../utilities'
 
 
@@ -17,8 +16,7 @@ const Header =({onCreate,onToday, nextWeek, prevWeek, date, week }) => {
         </div>
         <div className="navigate__MonthAndYear">{getDisplayedMonth(date)}</div>
       </div>
-      <WeekDays  />
-      <Days week={week} />
+      <Week week={week} />
     </header>
   )
 };

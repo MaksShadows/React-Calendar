@@ -1,18 +1,18 @@
 import React from "react";
-import ColumnDay from "./ColumnDay";
+import ColumnTable from "./ColumnTable";
 import SaidBar from "./SaidBar.jsx";
+
 
 
 const Main = ({showPopup}) => {
   return (
     <section className="main">
-     <div className="fixed">
-     <div className="main-wrapper">
+      <div className="fixed">
+      <div className="main-wrapper">
       <SaidBar />
-       <ColumnDay
-         showPopup={showPopup} />
+       <ColumnTable showPopup={showPopup} />
       </div>
-     </div>
+      </div>
     </section>
   );
 };
