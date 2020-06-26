@@ -1,5 +1,5 @@
 import React from "react";
-import ColumnTable from "./ColumnTable";
+import ColumnTable from "./Day";
 import SaidBar from "./SaidBar.jsx";
 
 
@@ -7,11 +7,10 @@ import SaidBar from "./SaidBar.jsx";
 const Main = ({showPopup}) => {
   return (
     <section className="main" onClick={showPopup}>
-      <div className="fixed">
+      <div className="fixed"></div>
       <div className="main-wrapper">
       <SaidBar />
        <ColumnTable  />
-      </div>
       </div>
     </section>
   );

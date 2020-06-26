@@ -3,8 +3,8 @@ import Week from './Week';
 import  getDisplayedMonth  from '../utilities'
 
 
-const Header =({onCreate,onToday, nextWeek, prevWeek, date,  week }) => {
-  const currentMonth = getDisplayedMonth(date);
+const Header =({onCreate,onToday, nextWeek, prevWeek, week }) => {
+  const currentMonth = getDisplayedMonth(week);
 
   return (
     <header className="header">
