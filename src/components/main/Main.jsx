@@ -6,11 +6,11 @@ import SaidBar from "./SaidBar.jsx";
 
 const Main = ({showPopup}) => {
   return (
-    <section className="main">
+    <section className="main" onClick={showPopup}>
       <div className="fixed">
       <div className="main-wrapper">
       <SaidBar />
-       <ColumnTable showPopup={showPopup} />
+       <ColumnTable  />
       </div>
       </div>
     </section>

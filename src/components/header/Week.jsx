@@ -1,12 +1,14 @@
 import React from "react";
 import  generateNumbers from "../utilities";
-import  getStartOfWeek  from "../utilities";
 import moment from "moment";
 
+
 const Week = ({week}) => {
-  let currentDay = getStartOfWeek(week);
+  let currentDay = week;
 
   const weekDays = generateNumbers(0, 6).map(days => {
+
+
     const weekDays = moment()
       .startOf("isoWeek")
       .add(currentDay, "days");
