@@ -3,6 +3,7 @@ import Header from './components/header/Header';
 import Popup from './components/Popup';
 import Main from "./components/main/Main";
 import  getStartOfWeek  from "./components/utilities";
+import {createTask,fetchTasksList, deleteEvent} from "./eventsGatway";
 
 
 
@@ -11,10 +12,39 @@ class App extends Component {
 constructor() {
     super();
     this.state = {
+      events:[],
       popupShown: false,
       monday: getStartOfWeek(new Date()),
     };
   }
+
+  componentDidMount() {
+    this.fetchTasks();
+}
+
+
+fetchTasks = () => {
+    fetchTasksList().then(eventsList =>
+        this.setState({
+            events: eventsList,
+        }),
+    );
+};
+
+  onCreate = (newEvent) => {
+  const newTask = {
+      newEvent
+  };
+    this.setState({
+       events: [this.state.newEvent]
+    })
+
+  createTask(newTask).then(() => this.fetchTasks());
+};
+
+handleEventDelete = (id) => {
+  deleteEvent(id).then(() => this.fetchTasks());
+};
 
     handlePopup = () => {
        this.setState({
@@ -57,9 +87,13 @@ constructor() {
             onToday={this.handleToday}
             onCreate={this.handlePopup} />
             <Main
-            showPopup={this.handlePopup}  />
+            showPopup={this.handlePopup} 
+            events={this.state.events}
+            />
              {this.state.popupShown && (
                     <Popup 
+                       events={this.state.events}
+                       onAddEvent={this.createNewEvent}
                       closePop={this.closePop} />         
              )}
           </>

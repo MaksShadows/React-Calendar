@@ -1,3 +1,4 @@
+const baseUrl = 'https://5eda0cc898b7f500160dbff5.mockapi.io/tasks';
 
 export const createTask = taskData => {
   return  fetch(baseUrl, {
@@ -12,15 +13,14 @@ export const createTask = taskData => {
 };
 
 export const fetchTasksList = () => {
-    return fetch(baseUrl).then(res => {
-             if (res.ok) {
-                 return res.json()
-             }
-         })
+    return fetch(baseUrl).then((response) => {
+        if (response.ok) return response.json();
+    });
+
 };
 
-export const deleteTask = (taskId) => {
-    return  fetch(`${baseUrl}/${taskId}`, {
+export const deleteEvent = (eventId) => {
+    return  fetch(`${baseUrl}/${eventId}`, {
                 method: 'DELETE'
             }).then(response => {
             if (!response.ok) {
