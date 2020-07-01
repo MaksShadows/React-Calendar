@@ -79,6 +79,15 @@
   width: 100%;
 }
 
+.delete-event {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  bottom: 0px;
+  padding:  10px 20px;
+}
+
 .clock {
   cursor: pointer;
   width: 25px;

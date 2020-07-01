@@ -20,18 +20,18 @@ class Popup extends React.Component {
   };
 
   handleEventCreate = () => {
-    this.props.onCreate(this.state.value); 
-    this.setState({ value: '' });
+    this.props.onCreate(this.state.title); 
+    this.setState({ title: '' });
  };
 
 
   handleSubmit = event => {
     event.preventDefault();
-      const formData = [...new FormData(this.formRef)].reduce(
-       (acc, [name, value]) => ({ ...acc, [name]: value }),
-       {}
-    );
-     this.props.onSubmit(formData);
+    //   const formData = [...new FormData(this.formRef)].reduce(
+    //    (acc, [name, value]) => ({ ...acc, [name]: value }),
+    //    {}
+    // );
+    //  this.props.onSubmit(formData);
   };
 
   setRef = (node) => {
@@ -82,6 +82,9 @@ render() {
         <button type="submit"
           onClick={this.handleEventCreate}
          className="btn_save">Save</button>
+          <button className="delete-event ">
+             <i className="Tiny material-icons material-icons-delete">delete</i>
+          </button>
         </div>
       </form>
     </div>

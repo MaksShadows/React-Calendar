@@ -93,6 +93,7 @@ handleEventDelete = (id) => {
              {this.state.popupShown && (
                     <Popup 
                        events={this.state.events}
+                       onSave={this.state.onCreate}
                        onAddEvent={this.createNewEvent}
                       closePop={this.closePop} />         
              )}
