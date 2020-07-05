@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/header/Header';
 import Popup from './components/Popup';
 import Main from "./components/main/Main";
-import  getStartOfWeek  from "./components/utilities";
+import  getStartOfWeek  from "./components/common/utilities";
 import {createTask,fetchTasksList, deleteEvent} from "./eventsGatway";
 
 
@@ -82,6 +82,7 @@ handleEventDelete = (id) => {
           <>
             <Header
             week={this.state.monday}
+            monday={this.state.monday}
             nextWeek={this.nextWeek}
             prevWeek={this.prevWeek}
             onToday={this.handleToday}

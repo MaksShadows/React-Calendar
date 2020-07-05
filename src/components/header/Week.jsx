@@ -1,5 +1,5 @@
 import React from "react";
-import  generateNumbers from "../utilities";
+import  generateNumbers from "../common/utilities";
 import moment from "moment";
 
 

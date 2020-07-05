@@ -1,8 +1,9 @@
 import React from "react";
-import  generateNumbers from "../utilities";
+import Event from "../Event";
+import  generateNumbers from "../common/utilities";
 
 
-const ColumnTable = ({column}) => {
+const ColumnTable = ({column, event, id }) => {
   const columnDay = generateNumbers(0, 6).map(arg => {
 
     return (
@@ -10,7 +11,12 @@ const ColumnTable = ({column}) => {
         <>
           {column = generateNumbers(0, 23).map(item =>{ 
               return (
-                <div key={item} className="column-item" ></div>
+                <div key={item} id={id}  className="column-item">
+                     {event && (
+                      <Event
+                       event={event}
+                       id={event.id} /> )}
+                </div>
               );
            }
           )

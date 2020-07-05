@@ -1,4 +1,4 @@
-import shmoment from './Shmoment.jsx'
+import shmoment from './Shmoment'
 
 const generateNumbers = (from, to) => {
   const newList = [];
@@ -67,5 +67,3 @@ export const getDisplayedMonth = date => {
       ? `${monthsNames[startMonth]} - ${monthsNames[endMonth]} ${startYear}`
       : `${monthsNames[startMonth]} ${startYear} - ${monthsNames[endMonth]} ${endYear}`;
 };
-
-

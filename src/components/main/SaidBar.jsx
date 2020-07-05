@@ -1,5 +1,6 @@
 import React from "react";
-import  generateNumbers from "../utilities";
+import  generateNumbers from "../common/utilities";
+
 
 const SaidBar = () => {
   const timesBlock = generateNumbers(1, 23).map(timeItem => {
@@ -16,3 +17,5 @@ const SaidBar = () => {
 };
 
 export default SaidBar;
+
+
