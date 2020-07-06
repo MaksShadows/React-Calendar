@@ -31,9 +31,9 @@ fetchTasks = () => {
     );
 };
 
-  onCreate = (newEvent) => {
+  onCreateEvent = (text) => {
   const newTask = {
-      newEvent
+      text
   };
     this.setState({
        events: [this.state.newEvent]
@@ -94,8 +94,8 @@ handleEventDelete = (id) => {
              {this.state.popupShown && (
                     <Popup 
                        events={this.state.events}
-                       onSave={this.state.onCreate}
-                       onAddEvent={this.createNewEvent}
+                       onSave={this.state.onCreateEvent}
+                      //  onAddEvent={this.createNewEvent}
                       closePop={this.closePop} />         
              )}
           </>

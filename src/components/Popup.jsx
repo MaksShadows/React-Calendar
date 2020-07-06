@@ -12,15 +12,19 @@ class Popup extends React.Component {
 
 
   handleChange = event => {
-    const { name, value } = event.target;
+    // this.setState({
+    //   title: event.target.title,
+    // });
 
-    this.setState({
-      [name]: value
-    });
+     const { name, value } = event.target;
+
+     this.setState({
+       [name]: value
+     });
   };
 
   handleEventCreate = () => {
-     this.props.onCreate(this.state.title); 
+     this.props.onSave(this.state.title); 
      this.setState({title: '' });
   };
 
