@@ -12,7 +12,17 @@ class App extends Component {
 constructor() {
     super();
     this.state = {
-      events:[],
+      events:[
+        {
+          id: 1,
+          title: 'One',
+          date: '08-07-2020',
+          startTime: '20:00',
+          endTime: '20:30',
+          description: 'first',
+      },
+
+      ],
       popupShown: false,
       monday: getStartOfWeek(new Date()),
     };
