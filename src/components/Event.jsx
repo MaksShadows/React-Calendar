@@ -10,17 +10,9 @@ class Event extends Component {
 
             <div key={Math.random()}
              className="active_event">
-              {this.props.events.map((event) =>
-                `${event.title} 
-                 ${event.date} 
-                 ${event.startTime}
-                 ${event.endTime}
-                 `
-                )} 
-
-             {/* <span>{this.props.title}</span>
-              <span>{`${this.state.startTime} - ${this.state.endTime}`}</span> 
-             <span>{this.props.description}</span>  */}
+              <span>{this.props.title}111</span>
+              {/* <span>{`${this.state.startTime} - ${this.state.endTime}`}</span>  */}
+             <span>{this.props.description}111</span>  
             </div>
 
         );
