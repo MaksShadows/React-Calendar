@@ -41,20 +41,24 @@ fetchTasks = () => {
     );
 };
 
-  onCreateEvent = (text) => {
-  const newTask = {
-      text
-  };
-    this.setState({
-       events: [this.state.newEvent]
-    })
+onCreateEvent   = (taskData) => {
+  createTask(taskData)
+      .then(fetchTasksList()
+          .then(result => {
+              this.setState({
+                  events: result,
+              })
+          })
+      )
+}
 
-  createTask(newTask).then(() => this.fetchTasks());
-};
+
+
 
 handleEventDelete = (id) => {
   deleteEvent(id).then(() => this.fetchTasks());
 };
+
 
     handlePopup = () => {
        this.setState({
@@ -92,6 +96,7 @@ handleEventDelete = (id) => {
           <>
             <Header
             week={this.state.monday}
+            events={this.state.events}
             monday={this.state.monday}
             nextWeek={this.nextWeek}
             prevWeek={this.prevWeek}

@@ -23,10 +23,10 @@ class Popup extends React.Component {
      });
   };
 
-  handleEventCreate = () => {
-     this.props.onSave(this.state.title); 
-     this.setState({title: '' });
-  };
+  // handleEventCreate = () => {
+  //    this.props.onSave(this.state.title); 
+  //    this.setState({title: '' });
+  // };
 
 
   handleSubmit = event => {
@@ -87,7 +87,7 @@ render() {
         </div>
         <div className="footer-popup">
         <button type="submit"
-          onClick={() => this.handleEventCreate}
+          onClick={() => this.props.onCreateEvent(this.state)}
          className="btn_save">Save</button>
            <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>

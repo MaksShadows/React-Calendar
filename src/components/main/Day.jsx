@@ -3,7 +3,7 @@ import Event from "../Event";
 import  generateNumbers from "../common/utilities";
 
 
-const ColumnTable = ({column, events, id}) => {
+const ColumnTable = ({column, events,}) => {
 
 
   const columnDay = generateNumbers(0, 6).map(arg => {
@@ -18,11 +18,7 @@ const ColumnTable = ({column, events, id}) => {
                    <Event
                     key={Math.random()}
                     events={events}
-                    title={events.title}
-                    id={events.id}
-                    date={events.date}
-                    startTime={events.startTime}
-                    endTime={events.endTime} /> 
+                  /> 
                       {/* {events.map(event => id ===(event.date) &&(
                        <Event
                        key={event.id}
