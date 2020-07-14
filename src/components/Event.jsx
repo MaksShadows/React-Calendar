@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 
+
 class Event extends Component {
+
     // state={
     //     events:[
     //         {
@@ -13,6 +15,8 @@ class Event extends Component {
     //           description: 'first',
     //       }, ]
     // }
+
+    
     render() {
 
         return (
@@ -20,6 +24,7 @@ class Event extends Component {
             <div key={Math.random()}
              className="active_event">
              {this.props.events.map((event) =>
+                
                 `${event.title}
                  ${event.date}
                  ${event.startTime}-${event.endTime}
