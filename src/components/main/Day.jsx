@@ -1,25 +1,17 @@
 import React from "react";
+import Hour from "../main/Hour";
 import Event from "../Event";
 import  generateNumbers from "../common/utilities";
 
 
 
-const ColumnTable = ({column, events, id}) => {
+const Day = ({events, id, monday}) => {
 
-  const columnDay = generateNumbers(0, 6).map(arg => {
-
-
-    
-    return (
-      <div   key={arg} 
-      event={events}
-       className="column-day">
-        {column = generateNumbers(0, 23).map(item =>(
-              <div key={item}  
-              id={id}  
-              data-time={item}
-              className="column-item">
-                {events.map(event =>   (
+  return generateNumbers(0, 6).map((args) => (
+    <div key={args} 
+    className="column-day">
+      <Hour  id={id} monday={monday} />
+        {events.map(event => id === (event.date) && (
                   <Event 
                   key={Math.random()}
                   events={events}
@@ -32,16 +24,10 @@ const ColumnTable = ({column, events, id}) => {
                   />
                 )
                 )}
-              </div>
-        )
-        )
-        }
+    </div>
+  ));
 
-      </div>
-    );
-  });
-
-  return columnDay;
+  
 };
 
-export default ColumnTable;
+export default Day;

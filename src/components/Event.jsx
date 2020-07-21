@@ -4,33 +4,38 @@ import React, { Component } from 'react';
 
 class Event extends Component {
 
-    // state={
-    //     events:[
-    //         {
-    //           id: 1,
-    //           title: 'One',
-    //           date: '08-07-2020',
-    //           startTime: '20:00',
-    //           endTime: '20:30',
-    //           description: 'first',
-    //       }, ]
-    // }
+    constructor(props){
+        super(props);
+        this.state={
+
+            startTime:new Date(`${this.props.date} ${this.props.endTime}`).getHours(),
+            endTime:new Date(`${this.props.date} ${this.props.endTime}`).getHours(),
+           
+        }
+    };
 
     
     render() {
+        
 
+        
         return (
 
             <div key={Math.random()}
              className="active_event">
-             {this.props.events.map((event) =>
+             <span>{this.props.title}</span>
+             <span>{`${this.state.startTime} - ${this.state.endTime}`}</span>
+             <span>{this.props.description}</span>
+
+
+             {/* {this.props.events.map((event) =>
                 
                 `${event.title}
                  ${event.date}
                  ${event.startTime}-${event.endTime}
                  ${event.description}
                  `
-                )} 
+                )}  */}
             </div>
 
         );

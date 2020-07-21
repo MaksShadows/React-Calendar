@@ -16,7 +16,7 @@ constructor() {
         {
           id: 1,
           title: 'One',
-          date: '08-07-2020',
+          date: new Date(),
           startTime: '20:00',
           endTime: '20:30',
           description: 'first',

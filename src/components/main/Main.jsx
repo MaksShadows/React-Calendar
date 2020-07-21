@@ -1,5 +1,5 @@
 import React from "react";
-import ColumnTable from "./Day";
+import Day from "./Day";
 import SaidBar from "./SaidBar.jsx";
 
 
@@ -10,7 +10,7 @@ const Main = ({showPopup, events}) => {
       <div className="fixed"></div>
       <div className="main-wrapper">
       <SaidBar />
-       <ColumnTable  events={events} />
+       <Day  events={events} />
       </div>
     </section>
   );
