@@ -8,10 +8,17 @@ import  generateNumbers from "../common/utilities";
 const Day = ({events, id, monday}) => {
 
   return generateNumbers(0, 6).map((args) => (
-    <div key={args} 
+    <div key={args}
+        args={args}
     className="column-day">
+      
       <Hour  id={id} monday={monday} />
-        {events.map(event => id === (event.date) && (
+      {
+        events.map((event) => {
+          return <Event key={event.id} event={event}  />
+        })
+      }
+        {/* {events.map(event => id === (event.date) && (
                   <Event 
                   key={Math.random()}
                   events={events}
@@ -23,7 +30,7 @@ const Day = ({events, id, monday}) => {
                   startTime={event.startTime}
                   />
                 )
-                )}
+                )} */}
     </div>
   ));
 

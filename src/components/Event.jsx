@@ -7,10 +7,10 @@ class Event extends Component {
     constructor(props){
         super(props);
         this.state={
+            date: new Date(),
+            startTime:new Date(`${this.date} ${this.props.endTime}`).getHours()/new Date(`${this.date} ${this.props.endTime}`).getMinutes(),
+            endTime:new Date(`${this.date} ${this.props.endTime}`).getHours()/new Date(`${this.date} ${this.props.endTime}`).getMinutes(),
 
-            startTime:new Date(`${this.props.date} ${this.props.endTime}`).getHours(),
-            endTime:new Date(`${this.props.date} ${this.props.endTime}`).getHours(),
-           
         }
     };
 
