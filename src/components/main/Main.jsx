@@ -7,7 +7,6 @@ import SaidBar from "./SaidBar.jsx";
 const Main = ({showPopup, events, monday}) => {
   return (
     <section className="main" onClick={showPopup}>
-      <div className="fixed"></div>
       <div className="main-wrapper">
       <SaidBar />
        <Day 				
