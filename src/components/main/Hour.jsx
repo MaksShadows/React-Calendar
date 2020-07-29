@@ -6,6 +6,7 @@ import  generateNumbers from "../common/utilities";
 const Hour = ({events}) => {
   return generateNumbers(0, 23).map((args) => (
     <div key={args} 
+    args={args}
     events={events}
     className="column-item">
     </div>

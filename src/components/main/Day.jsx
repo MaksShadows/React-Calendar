@@ -14,9 +14,10 @@ const Day = ({events, id, monday}) => {
       
       <Hour  id={id} monday={monday} />
       {
-        events.map((event) => {
-          return <Event key={event.id} event={event}  />
-        })
+        events.map((event) =>(
+          <Event key={event.id} event={event}  />
+
+        ))
       }
         {/* {events.map(event => id === (event.date) && (
                   <Event 

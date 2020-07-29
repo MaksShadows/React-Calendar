@@ -4,6 +4,7 @@ import getDisplayedMonth  from '../common/utilities'
 
 
 const Header =({onCreate,onToday, nextWeek, prevWeek, week, monday}) => {
+  const currenMonth = getDisplayedMonth(monday);
 
 
   return (
@@ -16,7 +17,7 @@ const Header =({onCreate,onToday, nextWeek, prevWeek, week, monday}) => {
           <div className="navigate__arows_left" onClick={nextWeek}></div>
            <div className="navigate__arows_right"onClick={prevWeek}></div>
         </div>
-        <div className="navigate__MonthAndYear">{getDisplayedMonth(monday)}</div>
+        <div className="navigate__MonthAndYear">{currenMonth}</div>
       </div>
       <Week week={week} />
     </header>

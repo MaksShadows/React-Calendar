@@ -4,13 +4,15 @@ import SaidBar from "./SaidBar.jsx";
 
 
 
-const Main = ({showPopup, events}) => {
+const Main = ({showPopup, events, monday}) => {
   return (
     <section className="main" onClick={showPopup}>
       <div className="fixed"></div>
       <div className="main-wrapper">
       <SaidBar />
-       <Day  events={events} />
+       <Day 				
+       	monday={monday}
+         events={events} />
       </div>
     </section>
   );
