@@ -1,6 +1,6 @@
 import React from "react";
 import Hour from "../main/Hour";
-import Event from "../Event";
+//import Event from "../Event";
 import  generateNumbers from "../common/utilities";
 
 
@@ -12,13 +12,13 @@ const Day = ({events, id, monday}) => {
         args={args}
     className="column-day">
       
-      <Hour  id={id} monday={monday} />
-      {
+      <Hour  events={events} />
+      {/* {
         events.map((event) =>(
           <Event key={event.id} event={event}  />
 
         ))
-      }
+      } */}
         {/* {events.map(event => id === (event.date) && (
                   <Event 
                   key={Math.random()}

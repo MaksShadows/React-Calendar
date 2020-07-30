@@ -8,8 +8,8 @@ class Event extends Component {
         super(props);
         this.state={
             date: new Date(),
-            startTime:new Date(`${this.date} ${this.props.endTime}`).getHours()/new Date(`${this.date} ${this.props.endTime}`).getMinutes(),
-            endTime:new Date(`${this.date} ${this.props.endTime}`).getHours()/new Date(`${this.date} ${this.props.endTime}`).getMinutes(),
+             startTime:new Date().getHours(),
+             endTime:new Date().getHours(),
 
         }
     };
@@ -23,19 +23,19 @@ class Event extends Component {
 
             <div key={Math.random()}
              className="active_event">
-             <span>{this.props.title}</span>
+             {/* <span>{this.props.title}</span>
              <span>{`${this.state.startTime} - ${this.state.endTime}`}</span>
-             <span>{this.props.description}</span>
+             <span>{this.props.description}</span> */}
 
 
-             {/* {this.props.events.map((event) =>
+              {this.props.events.map((event) =>
                 
                 `${event.title}
                  ${event.date}
-                 ${event.startTime}-${event.endTime}
+                 ${this.state.startTime} - ${this.state.endTime}
                  ${event.description}
                  `
-                )}  */}
+                )}  
             </div>
 
         );

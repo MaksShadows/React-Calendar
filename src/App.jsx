@@ -17,8 +17,8 @@ constructor() {
           id: 1,
           title: 'One',
           date: "",
-          startTime: '20:00',
-          endTime: '20:30',
+          startTime: '',
+          endTime: '',
           description: 'first',
       },
 
