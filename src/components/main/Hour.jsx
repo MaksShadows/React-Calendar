@@ -9,7 +9,6 @@ const Hour = ({events}) => {
     args={ args  <= 10 ?
       `${args}:00` :
       `${args}:00`}
-   // events={events}
     className="column-item">
        {events && <Event events={events} />}
     </div>

@@ -1,17 +1,25 @@
 import React from "react";
 import Hour from "../main/Hour";
-//import Event from "../Event";
+import Event from "../Event";
 import  generateNumbers from "../common/utilities";
+import   generateWeekRange from "../common/utilities";
 
 
 
 const Day = ({events, id, monday}) => {
 
+    const day = generateWeekRange(monday)
+   events.filter((event) => {
+    return (
+      new Date(day).getDate() === new Date(event.date).getDate() 
+    );
+  });
+
   return generateNumbers(0, 6).map((args) => (
     <div key={args}
-        args={args}
+        args={args} 
+        monday={monday}
     className="column-day">
-      
       <Hour  events={events} />
       {/* {
         events.map((event) =>(
@@ -19,7 +27,7 @@ const Day = ({events, id, monday}) => {
 
         ))
       } */}
-        {/* {events.map(event => id === (event.date) && (
+         {events.map(event => id === (event.date) && (
                   <Event 
                   key={Math.random()}
                   events={events}
@@ -31,7 +39,7 @@ const Day = ({events, id, monday}) => {
                   startTime={event.startTime}
                   />
                 )
-                )} */}
+                )} 
     </div>
   ));
 
