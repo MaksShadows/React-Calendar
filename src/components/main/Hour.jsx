@@ -10,12 +10,12 @@ const Hour = ({events}) => {
       `${args}:00` :
       `${args}:00`}
     className="column-item">
-      {
-        events.map((event) =>{
+        {
+        events.map((event) => {
          return <Event key={Math.random()} event={event}/>
         })
-      }
-        {/* {events && <Event event={event} />}  */}
+       }  
+         {/* {events && <Event  key={Math.random()}  />}  */}
     </div>
   ));
 

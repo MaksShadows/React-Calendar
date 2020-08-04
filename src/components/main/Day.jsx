@@ -5,7 +5,7 @@ import  generateNumbers from "../common/utilities";
 
 
 
-const Day = ({events, id, monday}) => {
+const Day = ({events, monday}) => {
 
 
   return generateNumbers(0, 6).map((args) => (
@@ -17,7 +17,7 @@ const Day = ({events, id, monday}) => {
         events.map((event) => {
           const filterEvents = events.filter(event => new Date(`${event.date} ${event.startTime}`).getHours());
           return (
-            <Hour  event={event} events={filterEvents} />
+            <Hour  event={event} events={filterEvents} key={Math.random()} />
           )
         })
       }
