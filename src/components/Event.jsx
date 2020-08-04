@@ -1,45 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
+ const Event = (props) => {
+    const { title, date, description, startTime, endTime } = props;
 
-class Event extends Component {
-
-    constructor(props){
-        super(props);
-        this.state={
-            date: new Date(),
-             startTime:new Date().getHours(),
-             endTime:new Date().getHours(),
-
-        }
-    };
-
-    
-    render() {
-        
-
-        
+       
         return (
-
-            <div key={Math.random()}
-             className="active_event">
-             {/* <span>{this.props.title}</span>
-             <span>{`${this.state.startTime} - ${this.state.endTime}`}</span>
-             <span>{this.props.description}</span> */}
-
-
-              {this.props.events.map((event) =>
-                
-                `${event.title}
-                 ${event.date}
-                 ${this.state.startTime} - ${this.state.endTime}
-                 ${event.description}
-                 `
-                )}  
-            </div>
-
-        );
-    };
-};
-
+       <div key={Math.random()} className="active_event" >
+           <span>{title}</span>
+           <span>{`${date} ${startTime} - ${endTime}`}</span>
+           <span>{description}</span>
+       </div>
+       )
+   }
+  
 export default Event;

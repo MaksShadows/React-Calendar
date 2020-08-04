@@ -9,8 +9,8 @@ import {createTask,fetchTasksList, deleteEvent} from "./eventsGatway";
 
 class App extends Component {
 
-constructor() {
-    super();
+constructor(props) {
+    super(props);
     this.state = {
       events:[
         {
