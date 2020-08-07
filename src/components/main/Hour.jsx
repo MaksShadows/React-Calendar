@@ -4,6 +4,8 @@ import Event from "../Event";
 
 
 const Hour = ({events}) => {
+
+
   return generateNumbers(0, 23).map((args) => (
     <div key={args} 
     args={ args  <= 10 ?

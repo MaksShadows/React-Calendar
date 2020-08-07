@@ -103,15 +103,16 @@ handleEventDelete = (id) => {
             onToday={this.handleToday}
             onCreate={this.handlePopup} />
             <Main
+            monday={this.state.monday}
             showPopup={this.handlePopup} 
             events={this.state.events}
             />
              {this.state.popupShown && (
-                    <Popup 
-                       events={this.state.events}
-                       onSave={this.state.onCreateEvent}
+               <Popup 
+                   events={this.state.events}
+                   onSave={this.state.onCreateEvent}
                       //  onAddEvent={this.createNewEvent}
-                      closePop={this.closePop} />         
+                   closePop={this.closePop} />         
              )}
           </>
       );

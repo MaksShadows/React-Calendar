@@ -5,13 +5,24 @@ import SaidBar from "./SaidBar.jsx";
 
 
 const Main = ({showPopup, events, monday}) => {
+
   return (
     <section className="main" onClick={showPopup}>
       <div className="main-wrapper">
       <SaidBar />
-       <Day 				
+      {/* {
+          events.map(() => {
+
+              const filterEvents = events.filter(event => new Date(`${event.date} ${event.startTime}`).getHours());
+                  return (
+                          <Day key={Math.random()} monday={monday} events={filterEvents} />
+                            )
+              })
+      } */}
+
+        <Day 				
        	monday={monday}
-         events={events} />
+         events={events} /> 
       </div>
     </section>
   );
