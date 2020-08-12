@@ -96,7 +96,6 @@ handleEventDelete = (id) => {
           <>
             <Header
             week={this.state.monday}
-            events={this.state.events}
             monday={this.state.monday}
             nextWeek={this.nextWeek}
             prevWeek={this.prevWeek}
