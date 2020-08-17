@@ -8,7 +8,6 @@ const Week = ({week}) => {
 
   const weekDays = generateNumbers(0, 6).map(days => {
 
-
     const weekDays = moment()
       .startOf("isoWeek")
       .add(currentDay, "days");
