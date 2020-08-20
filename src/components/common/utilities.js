@@ -1,4 +1,4 @@
-import shmoment from './Shmoment';
+import shmoment from './shmoment.js';
 
 const generateNumbers = (from, to) => {
   const newList = [];
@@ -42,7 +42,7 @@ export const getDateTime = (date, time) => {
   return withMinutes;
 };
 
-const monthsNames = [
+export const monthsNames = [
   'Jan',
   'Feb',
   'Mar',

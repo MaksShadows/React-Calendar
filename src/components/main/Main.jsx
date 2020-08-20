@@ -4,7 +4,7 @@ import SaidBar from "./SaidBar.jsx";
 
 
 
-const Main = ({showPopup, events, monday}) => {
+const Main = ({showPopup, events, monday, week}) => {
 
   return (
     <section className="main" onClick={showPopup}>

@@ -1,10 +1,10 @@
 import React from "react";
-import Week from './Week';
-import getDisplayedMonth  from '../common/utilities'
+import Week from '../main/Week';
+// import getDisplayedMonth  from '../common/utilities'
 
 
-const Header =({onCreate,onToday, nextWeek, prevWeek, week, monday}) => {
-  const currenMonth = getDisplayedMonth(monday);
+const Header =({onCreate,onToday, nextWeek, prevWeek, week, currMonth}) => {
+  // const currenMonth = getDisplayedMonth(monday);
 
 
   return (
@@ -17,7 +17,7 @@ const Header =({onCreate,onToday, nextWeek, prevWeek, week, monday}) => {
           <div className="navigate__arows_left" onClick={nextWeek}></div>
            <div className="navigate__arows_right"onClick={prevWeek}></div>
         </div>
-        <div className="navigate__MonthAndYear">{currenMonth}</div>
+        <div className="navigate__MonthAndYear">{currMonth}</div>
       </div>
       <Week week={week} />
     </header>

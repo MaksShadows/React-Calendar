@@ -3,6 +3,7 @@ import Header from './components/header/Header';
 import Popup from './components/Popup';
 import Main from "./components/main/Main";
 import  getStartOfWeek  from "./components/common/utilities";
+import  {monthsNames} from "./components/common/utilities";
 import {createTask,fetchTasksList, deleteEvent} from "./eventsGatway";
 
 
@@ -25,6 +26,7 @@ constructor(props) {
       ],
       popupShown: false,
       monday: getStartOfWeek(new Date()),
+      today: new Date(),
     };
   }
 
@@ -72,15 +74,19 @@ handleEventDelete = (id) => {
      });
      };
 
+     setCurrMonth = () => {
+      let currMonth =monthsNames[this.state.today.getMonth()];
+      return `${currMonth} ${this.state.today.getFullYear()}`;
+    };
      nextWeek = () => {
       this.setState({
-        monday: this.state.monday - 7
+        monday: this.state.monday - 7,
       });
     };
   
     prevWeek = () => {
       this.setState({
-        monday: this.state.monday + 7
+        monday: this.state.monday + 7,
       });
     };
 
@@ -96,7 +102,7 @@ handleEventDelete = (id) => {
           <>
             <Header
             week={this.state.monday}
-            monday={this.state.monday}
+            currMonth={this.setCurrMonth()}
             nextWeek={this.nextWeek}
             prevWeek={this.prevWeek}
             onToday={this.handleToday}
