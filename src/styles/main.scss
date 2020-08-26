@@ -2,15 +2,14 @@
   display: flex;
   max-width: 100%;
   flex-direction: column;
-  padding-top: 165px;
+  padding-top: 110px;
  // position: fixed;
 
 
   &-wrapper {
       
       display: flex;
-      margin-top: 14px;
-      
+      padding-top: 65px;      
 
       .time__day {
         display: flex;

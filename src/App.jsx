@@ -101,13 +101,14 @@ handleEventDelete = (id) => {
       return (
           <>
             <Header
-            week={this.state.monday}
+              week={this.state.monday}
             currMonth={this.setCurrMonth()}
             nextWeek={this.nextWeek}
             prevWeek={this.prevWeek}
             onToday={this.handleToday}
             onCreate={this.handlePopup} />
             <Main
+            //  week={this.state.monday}
             monday={this.state.monday}
             showPopup={this.handlePopup} 
             events={this.state.events}

@@ -1,4 +1,5 @@
 import React from "react";
+//import Week from './Week'
 import Day from "./Day";
 import SaidBar from "./SaidBar.jsx";
 
@@ -10,6 +11,8 @@ const Main = ({showPopup, events, monday, week}) => {
     <section className="main" onClick={showPopup}>
       <div className="main-wrapper">
       <SaidBar />
+      {/* <Week week={week} />   */}
+
       {/* {
           events.map(() => {
 
@@ -20,9 +23,9 @@ const Main = ({showPopup, events, monday, week}) => {
               })
       } */}
 
-        <Day 				
+         <Day 				
        	monday={monday}
-         events={events} /> 
+         events={events} />  
       </div>
     </section>
   );
