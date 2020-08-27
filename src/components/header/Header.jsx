@@ -1,5 +1,5 @@
 import React from "react";
-import Week from '../main/Week';
+//import Week from '../main/Week';
 // import getDisplayedMonth  from '../common/utilities'
 
 
@@ -19,7 +19,7 @@ const Header =({onCreate,onToday, nextWeek, prevWeek, week, currMonth}) => {
         </div>
         <div className="navigate__MonthAndYear">{currMonth}</div>
       </div>
-      <Week week={week} />
+      {/* <Week week={week} /> */}
     </header>
   )
 };
