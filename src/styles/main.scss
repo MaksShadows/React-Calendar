@@ -9,14 +9,16 @@
   &-wrapper {
       
       display: flex;
-      padding-top: 65px;      
+     // padding-top: 65px;      
 
       .time__day {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         margin-left: 10px;
         color: #70757a;
-        margin-top: 53px;
+        margin-top: 110px;
 
       }
       .time__day-hour {
@@ -26,6 +28,8 @@
       .column-day {
           position: relative;
           width: 100%;
+          padding-top: 20px;
+          
       }
 
       .column-item {
@@ -40,7 +44,48 @@
       }
   }
 }
+.week {
+  display: flex;
+  justify-content: space-around;
+  //padding-left: 40px;
+  padding-bottom: 10px;
+  margin-top: -15px;
+  //border-bottom: 1px solid #00000024;
+  //position: fixed;
+  width: 100%;
+  z-index: 50;
+ // background-color: #FFF;
 
+}
+.week-days {
+  font-size: 16px;
+   opacity: 0.5;
+   padding-bottom: 10px;
+   
+}
+.day-week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  //height: 100%;
+  font-size: 24px;
+  color: black;
+  border-radius: 100%;
+
+  &__current {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+   background-color: blue;
+  }
+}
+.week-wrapper{
+  border-bottom: 1px solid #00000024;
+ 
+}
 .holiday-day {
   border-left: 1px solid #00000024;
   height: 18px;

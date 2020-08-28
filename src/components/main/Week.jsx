@@ -1,5 +1,6 @@
 import React from "react";
 import  generateNumbers from "../common/utilities";
+import  Day from "./Day";
 import moment from "moment";
 
 
@@ -19,13 +20,19 @@ const Week = ({week}) => {
 
     return (
       <div key={days}  className="day-week">
-        <div className="week-days">{weekDays.format("ddd")}</div>
+         <div className="week-days">{weekDays.format("ddd")}</div>
         <div className={markDay}>{weekDays.format("DD")}</div>
+        <Day/>
        </div>
     );
   });
 
-  return <div className="week">{weekDays}</div>;
+  return (
+    <div className="week">{weekDays}</div>
+    
+  )
+
+  
 };
 
 export default Week;
