@@ -9,20 +9,20 @@ const Week = ({week}) => {
 
   const weekDays = generateNumbers(0, 6).map(days => {
 
-    const weekDays = moment()
+    const week = moment()
       .startOf("isoWeek")
       .add(currentDay, "days");
 
-      const markDay = weekDays.format("DD.MM.YY") ===  moment().format("DD.MM.YY")? "day-week__current" : "day-week  ";
+      const markDay = week.format("DD.MM.YY") ===  moment().format("DD.MM.YY")? "day-week__current" : "day-week  ";
 
 
     currentDay++;
 
     return (
       <div key={days}  className="day-week">
-         <div className="week-days">{weekDays.format("ddd")}</div>
-        <div className={markDay}>{weekDays.format("DD")}</div>
-        <Day/>
+         <div className="week-days">{week.format("ddd")}</div>
+        <div className={markDay}>{week.format("DD")}</div>
+        <Day key={days} />
        </div>
     );
   });

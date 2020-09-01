@@ -5,19 +5,19 @@ import Hour from "../main/Hour";
 
 
 
-const Day = ({events}) => {
+const Day = () => {
    const hours = Array(24).fill().map((val, index) => index);
 
   return  (
     <div  className="column-day">
 
        {
-        hours.map((event,) => {
-          const currentDate = new Date();
-        //  const currentDay = events.find(hours => hours.getDate() === currentDate.getDate());
-         // const filterEvents = events.filter(event => new Date(`${event.date} ${event.startTime}`).getHours());
+        hours.map(() => {
+          const hours = new Date();
+          //const currentDay = events.find(hours => hours.getDate() === currentDate.getDate());
+          const filterEvents = hours.filter(hours =>hours.getDate() === hours.getHours());
           return (
-        <Hour  event={event}  currentDate={currentDate}  key={Math.random()} />
+        <Hour hours={hours} filter={filterEvents}  key={Math.random()} />
           )
         })
       }

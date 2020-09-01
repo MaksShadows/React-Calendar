@@ -1,15 +1,15 @@
 import React from "react";
 //import  generateNumbers from "../common/utilities";
-//import Event from "../Event";
+import Event from "../Event";
 
 
-const Hour = ({events}) => {
+const Hour = () => {
 
 
   return (
     <div  className="column-item">
-        
-          {/* {events && <Event  key={Math.random()}  />}   */}
+  
+    <Event  key={Math.random()}  />
         
     </div>
   )
