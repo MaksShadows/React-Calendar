@@ -5,7 +5,7 @@ import Hour from "../main/Hour";
 
 
 
-const Day = () => {
+const Day = ({week}) => {
    const hours = Array(24).fill().map((val, index) => index);
 
   return  (
@@ -13,11 +13,12 @@ const Day = () => {
 
        {
         hours.map(() => {
-          const hours = new Date();
+          const day = new Date()
+          .filter(day => day.getDate() === day.getDay());
+          
           //const currentDay = events.find(hours => hours.getDate() === currentDate.getDate());
-          const filterEvents = hours.filter(hours =>hours.getDate() === hours.getHours());
           return (
-        <Hour hours={hours} filter={filterEvents}  key={Math.random()} />
+        <Hour hours={hours} week={week} filter={day} key={Math.random()} />
           )
         })
       }
