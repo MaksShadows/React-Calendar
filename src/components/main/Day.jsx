@@ -12,9 +12,9 @@ const Day = ({week}) => {
     <div  className="column-day">
 
        {
-        hours.map(() => {
+        hours.map(hours => {
           const day = new Date()
-          .filter(day => day.getDate() === day.getDay());
+          .filter(day => new Date().getDay(day));
           
           //const currentDay = events.find(hours => hours.getDate() === currentDate.getDate());
           return (
