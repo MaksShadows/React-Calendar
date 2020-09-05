@@ -8,10 +8,10 @@ import SaidBar from "./SaidBar.jsx";
 const Main = ({showPopup, events, monday, week}) => {
 
   return (
-    <section className="main" onClick={showPopup}>
+    <section className="main" key={monday} onClick={showPopup}>
       <div className="main-wrapper">
       <SaidBar />
-      <Week week={week} />
+      <Week week={week} events={events} />
 
       
       {/* {

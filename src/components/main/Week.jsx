@@ -11,7 +11,7 @@ const Week = ({week}) => {
 
     const week = moment()
       .startOf("isoWeek")
-      .add(currentDay, "days");
+      .add(currentDay, "day");
 
       const markDay = week.format("DD.MM.YY") ===  moment().format("DD.MM.YY")? "day-week__current" : "day-week  ";
 
@@ -22,7 +22,7 @@ const Week = ({week}) => {
       <div key={days}  className="day-week">
          <div className="week-days">{week.format("ddd")}</div>
         <div className={markDay}>{week.format("DD")}</div>
-        <Day key={days} />
+        <Day  />
        </div>
     );
   });
