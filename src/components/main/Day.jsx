@@ -1,29 +1,28 @@
 import React from "react";
 import Hour from "../main/Hour";
+//import moment from 'moment';
 //import  generateNumbers from "../common/utilities";
 
 
 
 
-const Day = ({week}) => {
-   const hours = Array(24).fill().map((val, index) => index);
+const Day = ({week, events}) => {
+   const hours = Array(24).fill().map((index) => index);
 
   return  (
-    <div  className="column-day">
+   <div   className="column-day">
+     {
+       hours.map((hour) =>{
+       
+        //  const filteredEvents = events.filter(event => event.day= new Date().getDay(week) === event.hours);
 
-       {
-        hours.map(hours => {
-          const day = new Date()
-          .filter(day => new Date().getDay(day));
-          
-          //const currentDay = events.find(hours => hours.getDate() === currentDate.getDate());
-          return (
-        <Hour hours={hours} week={week} filter={day} key={Math.random()} />
-          )
-        })
-      }
-    
-    </div>
+        return (
+          <Hour hour={hour}  key={Math.random()} />
+            )
+       })
+     }
+     
+   </div>
   );
 
 };
