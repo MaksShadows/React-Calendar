@@ -13,11 +13,14 @@ const Day = ({week, events}) => {
    <div   className="column-day">
      {
        hours.map((hour) =>{
-       
-        //  const filteredEvents = events.filter(event => event.day= new Date().getDay(week) === event.hours);
-
+        // const day = new Date(week);
+        // const filteredEvents = events.filter((event) => {
+        //   return day === new Date(event.day).getDay()  ;
+  
         return (
-          <Hour hour={hour}  key={Math.random()} />
+          <Hour hou={hour} 
+          //filteredEvents={filteredEvents}  
+           key={Math.random()} />
             )
        })
      }

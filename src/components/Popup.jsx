@@ -64,14 +64,14 @@ render() {
              />
           <input type="time"
            className="startTime_place input"
-           name="startTimePlace"  
+           name="startTime"  
            onChange={this.handleChange} 
            value={startTime} 
            />
           <span className='line'></span>
           <input type="time"
            className="endTime_place input"
-            name="endTimePlace" 
+            name="endTime" 
             onChange={this.handleChange} 
             value={endTime}
             />

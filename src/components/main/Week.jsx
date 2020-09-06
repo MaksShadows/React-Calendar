@@ -7,7 +7,7 @@ import moment from "moment";
 const Week = ({week}) => {
   let currentDay = week;
 
-  const weekDays = generateNumbers(0, 6).map(days => {
+  const weekDays = generateNumbers(0, 6).map(day => {
 
     const week = moment()
       .startOf("isoWeek")
@@ -19,10 +19,10 @@ const Week = ({week}) => {
     currentDay++;
 
     return (
-      <div key={days}  className="day-week">
+      <div key={day}  className="day-week">
          <div className="week-days">{week.format("ddd")}</div>
         <div className={markDay}>{week.format("DD")}</div>
-        <Day  />
+        <Day day={day} />
        </div>
     );
   });
