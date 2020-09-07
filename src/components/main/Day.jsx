@@ -13,10 +13,10 @@ const Day = ({week, events}) => {
    <div   className="column-day">
      {
        hours.map((hour) =>{
-        // const day = new Date(week);
+        const day = new Date(week);
         // const filteredEvents = events.filter((event) => {
-        //   return day === new Date(event.day).getDay()  ;
-  
+        //   return day === new Date(event.day).getDay(),hours === new Date(event.day).getHours();
+        //    }); 
         return (
           <Hour hou={hour} 
           //filteredEvents={filteredEvents}  
