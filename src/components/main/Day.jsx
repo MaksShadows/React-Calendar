@@ -14,12 +14,10 @@ const Day = ({week, events}) => {
      {
        hours.map((hour) =>{
         const day = new Date(week);
-        // const filteredEvents = events.filter((event) => {
-        //   return day === new Date(event.day).getDay(),hours === new Date(event.day).getHours();
-        //    }); 
-        return (
+         const filteredEvents = events.filter(event => event.day === new Date(day).getDay() ||  hours === new Date(hours).getHours() ); 
+        return ( 
           <Hour hou={hour} 
-          //filteredEvents={filteredEvents}  
+          filteredEvents={filteredEvents}  
            key={Math.random()} />
             )
        })
