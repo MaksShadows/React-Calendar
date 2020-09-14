@@ -9,15 +9,22 @@ import Hour from "../main/Hour";
 const Day = ({week, events}) => {
    const hours = Array(24).fill().map((index) => index);
 
+   function filteredEvents() {
+    let hour =[];
+    for (let i = 0; i<24 ; i++) {
+     hour.push(i);
+   } 
+    return hour;
+  }
+console.log(filteredEvents());
+
   return  (
    <div   className="column-day">
      {
-       hours.map((hour) =>{
-        const day = new Date(week);
-         const filteredEvents = events.filter(event => event.day === new Date(day).getDay() ||  hours === new Date(hours).getHours() ); 
+       hours.map(() =>{
+
         return ( 
-          <Hour hou={hour} 
-          filteredEvents={filteredEvents}  
+          <Hour hour={filteredEvents} 
            key={Math.random()} />
             )
        })
