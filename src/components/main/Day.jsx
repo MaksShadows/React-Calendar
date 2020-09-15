@@ -12,8 +12,8 @@ const Day = ({week, events}) => {
    function filteredEvents() {
     let hour =[];
     for (let i = 0; i<24 ; i++) {
-     hour.push(i);
-   } 
+      hour.push(i + new Date([0]).getHours());
+    } 
     return hour;
   }
 console.log(filteredEvents());
@@ -25,6 +25,7 @@ console.log(filteredEvents());
 
         return ( 
           <Hour hour={filteredEvents} 
+
            key={Math.random()} />
             )
        })
