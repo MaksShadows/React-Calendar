@@ -7,24 +7,26 @@ import Hour from "../main/Hour";
 
 
 const Day = ({week, events}) => {
-   const hours = Array(24).fill().map((index) => index);
+   const hours = generateHours();
 
-   function filteredEvents() {
+   function generateHours() {
     let hour =[];
     for (let i = 0; i<24 ; i++) {
       hour.push(i + new Date([0]).getHours());
     } 
     return hour;
   }
-console.log(filteredEvents());
+console.log(generateHours());
+
 
   return  (
    <div   className="column-day">
      {
        hours.map(() =>{
 
+
         return ( 
-          <Hour hour={filteredEvents} 
+          <Hour hour={hours} 
 
            key={Math.random()} />
             )
