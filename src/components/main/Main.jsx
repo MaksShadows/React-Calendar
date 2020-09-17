@@ -18,7 +18,7 @@ class Main extends Component {
     <Navigation  week={week} />
      <div className="main-wrapper">
      <SaidBar />
-      <Week weekStart={weekStart} /> 
+      <Week weekStart={weekStart} week={week} /> 
      </div>
    </section>
       )

@@ -6,7 +6,7 @@ import Hour from "../main/Hour";
 
 
 
-const Day = ({week, events}) => {
+const Day = ({ dataDay}) => {
 
   const hours = Array(24).fill();
 
@@ -18,7 +18,7 @@ const Day = ({week, events}) => {
   //  } 
 
   return  (
-   <div   className="column-day">
+   <div   className="column-day" data-day={dataDay}>
      {
        hours.map((hours) => {
 

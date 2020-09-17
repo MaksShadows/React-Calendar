@@ -41,7 +41,9 @@ export const getDateTime = (date, time) => {
   );
   return withMinutes;
 };
-
+export const formatMins = (mins) => {
+    return mins < 10 ? `0${mins}` : mins;
+}
 export const monthsNames = [
   'Jan',
   'Feb',
