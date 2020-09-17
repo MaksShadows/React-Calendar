@@ -1,40 +1,24 @@
-import React from "react";
-import  generateNumbers from "../common/utilities";
-import  Day from "./Day";
-import moment from "moment";
+import React from 'react';
+import Day from './Day';
 
 
-const Week = ({week}) => {
-  let currentDay = week;
 
-  const weekDays = generateNumbers(0, 6).map(day => {
-
-    const week = moment()
-      .startOf("isoWeek")
-      .add(currentDay, "day");
-
-      const markDay = week.format("DD.MM.YY") ===  moment().format("DD.MM.YY")? "day-week__current" : "day-week  ";
-
-
-    currentDay++;
+const Week = ({  weekDays, events }) => {
 
     return (
-      <div key={day}  className="day-week">
-         <div className="week-days">{week.format("ddd")}</div>
-        <div className={markDay}>{week.format("DD")}</div>
-        <Day day={day} />
-       </div>
-    );
-  });
+        <div className="column-day">
+            { weekDays.map(dayStart => {
+                // const dayEnd = new Date(dayStart.getTime()).setHours(dayStart.getHours() + 24);
 
-  return (
-    <div className="week">{weekDays}</div>
-    
-  )
+                // //getting all events from the day we will render
+                // const dayEvents = events.filter(event => event.dateFrom > dayStart && event.dateTo < dayEnd);
 
-  
-};
+                return (
+                    <Day key={dayStart}/>
+                )
+            })}
+        </div>
+    )
+}
 
 export default Week;
-
-

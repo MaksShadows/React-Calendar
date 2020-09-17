@@ -1,35 +1,29 @@
-import React from "react";
-import Week from './Week'
-//import Day from "./Day";
+import React, { Component } from 'react';
+import Navigation  from './Navigation'
+//import Week from './Week';
 import SaidBar from "./SaidBar.jsx";
 
+class Main extends Component {
 
+  // state = {
+  //     events,
+  // }
 
-const Main = ({showPopup, events, week, today}) => {
+  render() {
+      const {  showPopup, week} = this.props;
 
-  return (
-    <section className="main"  onClick={showPopup}>
-      <div className="main-wrapper">
-      <SaidBar />
-      <Week week={week} events={events} today={today} />
-
+      return (
       
-      {/* {
-          events.map(() => {
+    <section className="main"  onClick={showPopup}>
+    <Navigation  week={week} />
+     <div className="main-wrapper">
+      {/* <Week weekDays={weekDays} />   */}
+     <SaidBar />
+     </div>
+   </section>
+      )
+  }
+}
 
-              const filterEvents = events.filter(event => new Date(`${event.date} ${event.startTime}`).getHours());
-                  return (
-                          <Day key={Math.random()} monday={monday} events={filterEvents} />
-                            )
-              })
-      } */}
-
-         {/* <Day 				
-       	monday={monday}
-         events={events} />   */}
-      </div>
-    </section>
-  );
-};
 
 export default Main;

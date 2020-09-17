@@ -1,4 +1,4 @@
-import shmoment from './shmoment.js';
+import shmoment from './shmoment';
 
 const generateNumbers = (from, to) => {
   const newList = [];

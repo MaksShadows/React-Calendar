@@ -21,7 +21,7 @@ const Day = ({week, events}) => {
 
         return ( 
           <Hour hours={hours} 
-           key={Math.random()} />
+           key={hours} />
             )
        })
      }
