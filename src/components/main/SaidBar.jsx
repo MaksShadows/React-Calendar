@@ -1,5 +1,5 @@
 import React from "react";
-import  {generateNumbers} from "../src/common/utilities" ;
+import  generateNumbers from "../common/utilities";
 
 
 const SaidBar = () => {

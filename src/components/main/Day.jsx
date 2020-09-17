@@ -7,12 +7,15 @@ import Hour from "../main/Hour";
 
 
 const Day = ({week, events}) => {
-   //const hours = generateHours();
 
-   let hours =[];
-   for (let i = 0; i<24 ; i++) {
-     hours.push(i + new Date([0]).getHours());
-   } 
+  const hours = Array(24).fill();
+
+  //  //const hours = generateHours();
+
+  //  let hours =[];
+  //  for (let i = 0; i<24 ; i++) {
+  //    hours.push(i + new Date([0]).getHours());
+  //  } 
 
   return  (
    <div   className="column-day">
@@ -21,7 +24,7 @@ const Day = ({week, events}) => {
 
         return ( 
           <Hour hours={hours} 
-           key={hours} />
+           key={Math.random()} />
             )
        })
      }

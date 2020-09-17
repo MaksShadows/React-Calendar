@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navigation  from './Navigation'
-//import Week from './Week';
+import Week from './Week';
 import SaidBar from "./SaidBar.jsx";
 
 class Main extends Component {
@@ -10,15 +10,15 @@ class Main extends Component {
   // }
 
   render() {
-      const {  showPopup, week} = this.props;
+      const { showPopup, week, weekStart} = this.props;
 
       return (
       
     <section className="main"  onClick={showPopup}>
     <Navigation  week={week} />
      <div className="main-wrapper">
-      {/* <Week weekDays={weekDays} />   */}
      <SaidBar />
+      <Week weekStart={weekStart} /> 
      </div>
    </section>
       )

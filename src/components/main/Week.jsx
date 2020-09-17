@@ -3,21 +3,22 @@ import Day from './Day';
 
 
 
-const Week = ({  weekDays, events }) => {
+const Week = () => {
+
+    const weekStart = Array(7).fill();
+
 
     return (
-        <div className="column-day">
-            { weekDays.map(dayStart => {
-                // const dayEnd = new Date(dayStart.getTime()).setHours(dayStart.getHours() + 24);
-
-                // //getting all events from the day we will render
-                // const dayEvents = events.filter(event => event.dateFrom > dayStart && event.dateTo < dayEnd);
-
+        <>
+            {
+             weekStart.map(() =>{
                 return (
-                    <Day key={dayStart}/>
+                    <Day key={Math.random()}/>
                 )
-            })}
-        </div>
+             })
+            }
+          
+        </>
     )
 }
 

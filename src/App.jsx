@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Header from './components/header/Header';
 import Popup from './components/Popup';
 import Main from "./components/main/Main";
-import  {getStartOfWeek,   generateWeekRange}  from "../src/common/utilities";
-import  {monthsNames} from "../src/common/utilities";
+import  getStartOfWeek from "./components/common/utilities";
+import   generateWeekRange from "./components/common/utilities";
+import  {monthsNames} from "./components/common/utilities";	
 //import {createTask,fetchTasksList, deleteEvent} from "./eventsGatway";
 
 
@@ -52,7 +53,7 @@ class App extends Component {
 
   render() {
       const { weeksDay } = this.state;
-      const weekStart = generateWeekRange(getStartOfWeek(weeksDay));
+      const weekStart = generateWeekRange(weeksDay);
 
       return (
       <>

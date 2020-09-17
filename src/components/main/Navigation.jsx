@@ -1,6 +1,5 @@
 import React from "react";
-import  {generateNumbers} from "../src/common/utilities";
-//import  Day from "./Day";
+import  generateNumbers from "../common/utilities";
 import moment from "moment";
 
 
