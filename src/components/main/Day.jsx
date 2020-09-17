@@ -6,7 +6,7 @@ import Hour from "../main/Hour";
 
 
 
-const Day = ({ dataDay}) => {
+const Day = ({ dataDay, dayEvents}) => {
 
   const hours = Array(24).fill();
 
@@ -20,11 +20,14 @@ const Day = ({ dataDay}) => {
   return  (
    <div   className="column-day" data-day={dataDay}>
      {
-       hours.map((hours) => {
+       hours.map((hour) => {
+        // const hourEvents = dayEvents.filter(event => event.dateFrom.getHours() === hour);
 
         return ( 
-          <Hour hours={hours} 
-           key={Math.random()} />
+          <Hour key={dataDay+ hours} 
+          dataHour={hour}
+//hourEvents={hourEvents}
+          />
             )
        })
      }
