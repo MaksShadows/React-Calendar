@@ -5,7 +5,7 @@ import Main from "./components/main/Main";
 // import  getStartOfWeek from "./components/common/utilities";
 import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
 import  {monthsNames} from "./components/common/utilities";	
-import {fetchTasksList} from "../src/gateway/eventsGatway.js";
+import {fetchTasksList, createEvent} from "../src/gateway/eventsGatway.js";
 
 
 class App extends Component {
@@ -23,23 +23,21 @@ class App extends Component {
   }
 
   fetchEvents = () =>
-  fetchTasksList().then((events) =>
+  fetchTasksList().then((eventsList) =>
     this.setState({
-      events
+      events: eventsList
     })
   );
 
-//   onCreate = ()=> {
-//     const newTask = {
-//       title: "",
-//       dateStart: "",
-//       startTime: "",
-//       endTime: "",
-//       description: "",
-//     };
+   onCreate = (newEvent)=> {
+    this.setState({
+          events: [...this.state.events, newEvent]
+       })
 
-//     createTask(newTask).then(() => this.fetchTasksList());
-// };
+    createEvent(newEvent).then(() => this.fetchTasksList());
+ };
+
+
 
   handlePopup = () => {
     this.setState({
@@ -92,8 +90,8 @@ class App extends Component {
            {this.state.popupShown && (
                <Popup 
                    events={this.state.events}
-                   onSave={this.state.onCreateEvent}
-                  // onAddEvent={this.onCreate}
+                  fetchEvents={this.fetchEvents}
+                  onAddEvent={this.onCreate}
                    closePop={this.closePop} />         
              )}
       </>)

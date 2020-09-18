@@ -1,10 +1,10 @@
-const baseUrl = 'https://5f64b753fb1b5700169c92b6.mockapi.io/api/v1/:events';
+const baseUrl = 'https://5f64dc7cfb1b5700169c9688.mockapi.io/api/v1/event';
 
-export const createTask = taskData => {
+export const createEvent  = (eventsList) => {
   return  fetch(baseUrl, {
         method: "POST",
         headers: { 'Content-Type': 'application/json;charset=utf-8', },
-        body: JSON.stringify(taskData)
+        body: JSON.stringify(eventsList)
     }).then(response => {
         if (!response.ok) {
             throw new Error('Faild to create task')

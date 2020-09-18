@@ -1,15 +1,17 @@
 import React from 'react';
-import {fetchTasksList,  createTask} from "../gateway/eventsGatway.js";
+//import {fetchTasksList,  createEvent } from "../gateway/eventsGatway.js";
 
 
 class Popup extends React.Component {
 
   state = {
-    title: "",
-    dateStart: "",
-    startTime: "",
-    endTime: "",
-    description: "",
+    events:[{
+      title: "",
+      dateStart: "",
+      startTime: "",
+      endTime: "",
+      description: "",
+    }]
   };
 
 
@@ -17,17 +19,22 @@ class Popup extends React.Component {
      const { name, value } = event.target;
 
      this.setState({
-       [name]: value
+       event: {
+        ...this.state.events,
+        [name]: value
+ 
+       }
      });
   };
 
-  // handleEventCreate = () => {
-  //    this.props.onSave(this.state.title); 
-  //    this.setState({title: '' });
-  // };
+   handleEventCreate = (event) => {
+    event.preventDefault();
+
+     this.props.onAddEvent(this.state.events); 
+   };
 
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
      const formData = [...new FormData(this.formRef)].reduce(
           (acc, [name, value]) => ({ ...acc, [name]: value }),
@@ -84,7 +91,7 @@ render() {
         </div>
         <div className="footer-popup">
         <button type="submit"
-          onClick={() => createTask(this.state).then(fetchTasksList()) }
+          onClick={() => this.handleEventCreate}
          className="btn_save">Save</button>
            <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>
