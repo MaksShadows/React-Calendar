@@ -1,4 +1,6 @@
 import React from 'react';
+import {fetchTasksList,  createTask} from "../gateway/eventsGatway.js";
+
 
 class Popup extends React.Component {
 
@@ -12,10 +14,6 @@ class Popup extends React.Component {
 
 
   handleChange = event => {
-    // this.setState({
-    //   title: event.target.title,
-    // });
-
      const { name, value } = event.target;
 
      this.setState({
@@ -86,7 +84,7 @@ render() {
         </div>
         <div className="footer-popup">
         <button type="submit"
-          onClick={() => this.props.onCreateEvent(this.state)}
+          onClick={() => createTask(this.state).then(fetchTasksList()) }
          className="btn_save">Save</button>
            <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>

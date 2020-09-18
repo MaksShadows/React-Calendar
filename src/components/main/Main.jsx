@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navigation  from './Navigation'
 import Week from './Week';
 import SaidBar from "./SaidBar.jsx";
-import events from '../events.js';
+import events from '../../gateway/events.js';
 
 
 class Main extends Component {

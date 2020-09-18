@@ -1,4 +1,4 @@
-const baseUrl = '';
+const baseUrl = 'https://5f64b753fb1b5700169c92b6.mockapi.io/api/v1/:events';
 
 export const createTask = taskData => {
   return  fetch(baseUrl, {
@@ -13,9 +13,7 @@ export const createTask = taskData => {
 };
 
 export const fetchTasksList = () => {
-    return fetch(baseUrl).then((response) => {
-        if (response.ok) return response.json();
-    });
+   return fetch(baseUrl).then((response) => response.json());
 
 };
 
