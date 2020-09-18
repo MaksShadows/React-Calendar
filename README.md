@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+### Go **[here](https://gifted-northcutt-608977.netlify.app/)** for live demo.
+
 In the project directory, you can run:
 
 ### `npm start`

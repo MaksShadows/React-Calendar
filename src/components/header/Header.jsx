@@ -1,8 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 
 
-const Header =({onCreate,onToday, nextWeek, prevWeek, week, currMonth}) => {
+
+const Header =({onCreate,onToday, nextWeek, prevWeek,  currMonth}) => {
   // const currenMonth = getDisplayedMonth(monday);
 
 
@@ -23,3 +25,10 @@ const Header =({onCreate,onToday, nextWeek, prevWeek, week, currMonth}) => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  onCreate: PropTypes.func,
+  onToday: PropTypes.func,
+  nextWeek: PropTypes.func,
+  prevWeek: PropTypes.func
+};
