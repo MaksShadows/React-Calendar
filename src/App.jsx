@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import Header from './components/header/Header';
 import Popup from './components/Popup';
 import Main from "./components/main/Main";
-import  getStartOfWeek from "./components/common/utilities";
-import  generateWeekRange  from "./components/common/utilities";
+// import  getStartOfWeek from "./components/common/utilities";
+import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
 import  {monthsNames} from "./components/common/utilities";	
-//import {createTask,fetchTasksList, deleteEvent} from "./eventsGatway";
+//import {createTask,fetchTasksList, deleteEvent} from "../src/gateway/eventsGatway.js";
 
 
 class App extends Component {
 
   state = {
     popupShown: false,
-    monday: getStartOfWeek(new Date()),
+    monday: 0,
     today: new Date(),
-    weeksDay: new Date(),
+    weekStart: generateWeekRange(getStartOfWeek(new Date()))
   }
 
   handlePopup = () => {
@@ -52,9 +52,7 @@ class App extends Component {
   };
 
   render() {
-      const { weeksDay } = this.state;
-      const weekStart = generateWeekRange(getStartOfWeek(weeksDay));
-
+      
       return (
       <>
           <Header currMonth={this.setCurrMonth()}
@@ -63,7 +61,7 @@ class App extends Component {
           onToday={this.handleToday}
           onCreate={this.handlePopup} 
           />
-          <Main weekStart={weekStart}
+          <Main weekStart={this.state.weekStart}
             week={this.state.monday}
             showPopup={this.handlePopup} 
            />

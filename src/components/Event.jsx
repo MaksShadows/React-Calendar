@@ -1,14 +1,18 @@
 import React from 'react';
 
 
- const Event = (props) => {
-    const { title, date, description, startTime, endTime } = props;
+ const Event = ({height, marginTop, title, time}) => {
+   
+    const eventStyle = {
+        height,
+        marginTop
+    }
+
 
         return (
-       <div key={Math.random()} className="active_event" >
-           <span>{title}</span>
-           <span>{`${date} ${startTime} - ${endTime}`}</span>
-           <span>{description}</span>
+       <div style={eventStyle} className="active_event" >
+            <div className="event__title">{title}</div>
+           <div className="event__time">{time}</div>
        </div>
        )
    }

@@ -56,7 +56,6 @@ render() {
         name="eventName" type="text"
          placeholder="Add title " />
         <div className="popup__picker">
-          <img className="clock" src="https://img.icons8.com/pastel-glyph/64/000000/time.png"  alt="clock" />
           <input className="event__date-start input"
             onChange={this.handleChange} 
             name="startDate" required type="date" 
