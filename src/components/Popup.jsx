@@ -1,5 +1,5 @@
 import React from 'react';
-//import {fetchTasksList,  createEvent } from "../gateway/eventsGatway.js";
+import {fetchTasksList,  createEvent } from "../gateway/eventsGatway.js";
 
 
 class Popup extends React.Component {
@@ -30,7 +30,7 @@ class Popup extends React.Component {
    handleEventCreate = (event) => {
     event.preventDefault();
 
-     this.props.onAddEvent(this.state.events); 
+    createEvent(this.state.timeFormData).then(fetchTasksList())
    };
 
 

@@ -5,7 +5,7 @@ import Main from "./components/main/Main";
 // import  getStartOfWeek from "./components/common/utilities";
 import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
 import  {monthsNames} from "./components/common/utilities";	
-import {fetchTasksList, createEvent} from "../src/gateway/eventsGatway.js";
+import {fetchTasksList} from "../src/gateway/eventsGatway.js";
 
 
 class App extends Component {
@@ -29,13 +29,13 @@ class App extends Component {
     })
   );
 
-   onCreate = (newEvent)=> {
-    this.setState({
-          events: [...this.state.events, newEvent]
-       })
+//    onCreate = (newEvent)=> {
+//     this.setState({
+//           events: [...this.state.events, newEvent]
+//        })
 
-    createEvent(newEvent).then(() => this.fetchTasksList());
- };
+//     createEvent(newEvent).then(() => this.fetchTasksList());
+//  };
 
 
 
@@ -91,7 +91,7 @@ class App extends Component {
                <Popup 
                    events={this.state.events}
                   fetchEvents={this.fetchEvents}
-                  onAddEvent={this.onCreate}
+                  //onAddEvent={this.onCreate}
                    closePop={this.closePop} />         
              )}
       </>)
