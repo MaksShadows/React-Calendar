@@ -120,8 +120,8 @@ class App extends Component {
            />
            {this.state.popupShown && (
                <Popup 
-                  //fetchEvents={this.fetchEvents}
-                    onCreate={this.onCreate}
+                  fetchEvents={this.fetchEvents}
+                   // onCreate={this.onCreate}
                    closePop={this.closePop} />         
              )}
       </>)

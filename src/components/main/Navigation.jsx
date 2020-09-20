@@ -10,7 +10,7 @@ const Navigation  = ({week}) => {
 
     const week = moment()
       .startOf("isoWeek")
-      .add(currentDay, "day");
+      .add(currentDay, "days");
 
       const markDay = week.format("DD.MM.YY") ===  moment().format("DD.MM.YY")? "day-week__current" : "day-week  ";
 

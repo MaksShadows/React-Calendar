@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import moment from "moment";
 
 
 
 
-const Header =({onCreate,onToday, nextWeek, prevWeek,  currMonth}) => {
-  // const currenMonth = getDisplayedMonth(monday);
+const Header =({onCreate,onToday, nextWeek, prevWeek, months}) => {
+  const currenMonth = moment(months).format('MMMM') === moment(months).add("month").format('MMMM');
 
 
   return (
@@ -15,10 +16,10 @@ const Header =({onCreate,onToday, nextWeek, prevWeek,  currMonth}) => {
       <i className="fas fa-plus"></i>Create </button>
       <button className="navigation-today"onClick={onToday} >Today</button>
        <div className ="navigate__arows">
-          <div className="navigate__arows_left" onClick={nextWeek}></div>
-           <div className="navigate__arows_right"onClick={prevWeek}></div>
+          <div className="navigate__arows_left" onClick={prevWeek}></div>
+           <div className="navigate__arows_right"onClick={nextWeek}></div>
         </div>
-        <div className="navigate__MonthAndYear">{currMonth}</div>
+  <div className="navigate__MonthAndYear">{months.format("MMMM")}{currenMonth}</div>
       </div>
     </header>
   )
