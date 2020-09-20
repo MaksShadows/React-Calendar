@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Header from './components/header/Header';
 import Popup from './components/Popup';
 import Main from "./components/main/Main";
-// import  getStartOfWeek from "./components/common/utilities";
+import moment from "moment";
 import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
-import  {monthsNames} from "./components/common/utilities";	
-import {fetchTasksList} from "../src/gateway/eventsGatway.js";
+import {fetchTasksList
+  //createEvent
+} from "../src/gateway/eventsGatway.js";
 
 
 class App extends Component {
@@ -13,29 +14,55 @@ class App extends Component {
   state = {
     popupShown: false,
     monday: 0,
-    today: new Date(),
+    months:  moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
-    events: []
+    events: [{
+      title: "",
+      dateStart: "",
+      startTime: "",
+      endTime: "",
+      description: "",
+    }]
 
   }
   componentDidMount() {
     this.fetchEvents();
   }
-
+ 
   fetchEvents = () =>
-  fetchTasksList().then((eventsList) =>
+  fetchTasksList().then((events) =>
     this.setState({
-      events: eventsList
+      events: events
     })
   );
 
-//    onCreate = (newEvent)=> {
-//     this.setState({
-//           events: [...this.state.events, newEvent]
-//        })
+//  onCreate = events=> {
+//   events.preventDefault();
 
-//     createEvent(newEvent).then(() => this.fetchTasksList());
-//  };
+//   const {
+//     title,
+//     dateStart,
+//     startTime,
+//     endTime,
+//     description
+//   } = this.state.events
+
+//   const newEvent ={
+//     title,
+//     dateStart,
+//     startTime,
+//     endTime,
+//     description
+//   }
+//   createEvent({ ...newEvent }).then(() =>
+//   fetchTasksList().then(events => {
+//     this.setState({
+//       events:events
+//     })
+//   })
+//   )
+       
+//   };
 
 
 
@@ -51,25 +78,27 @@ class App extends Component {
   });
   };
 
-  setCurrMonth = () => {
-    let currMonth =monthsNames[this.state.today.getMonth()];
-    return `${currMonth} ${this.state.today.getFullYear()}`;
-  };
    nextWeek = () => {
     this.setState({
-      monday: this.state.monday - 7,
+      monday: this.state.monday + 7 ,
+      months:  moment(this.state.months).add(7, "days")
+
     });
   };
 
   prevWeek = () => {
     this.setState({
-      monday: this.state.monday + 7,
+      monday: this.state.monday - 7,
+      months:  moment(this.state.months).subtract(7, "days")
+
     });
   };
 
   handleToday = () => {
     this.setState({
-      monday: 0
+      monday: 0,
+      months: moment().startOf("isoWeek")
+
     });  
   };
 
@@ -77,7 +106,7 @@ class App extends Component {
       
       return (
       <>
-          <Header currMonth={this.setCurrMonth()}
+          <Header months={this.state.months}
           nextWeek={this.nextWeek}
           prevWeek={this.prevWeek}
           onToday={this.handleToday}
@@ -86,12 +115,13 @@ class App extends Component {
           <Main weekStart={this.state.weekStart}
             week={this.state.monday}
             showPopup={this.handlePopup} 
+            events={this.state.events}
+
            />
            {this.state.popupShown && (
                <Popup 
-                   events={this.state.events}
-                  fetchEvents={this.fetchEvents}
-                  //onAddEvent={this.onCreate}
+                  //fetchEvents={this.fetchEvents}
+                    onCreate={this.onCreate}
                    closePop={this.closePop} />         
              )}
       </>)
