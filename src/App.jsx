@@ -36,33 +36,31 @@ class App extends Component {
     })
   );
 
-//  onCreate = events=> {
-//   events.preventDefault();
+  onCreate = events=> {
+   events.preventDefault();
 
-//   const {
-//     title,
-//     dateStart,
-//     startTime,
-//     endTime,
-//     description
-//   } = this.state.events
+   const {
+     title,
+     dateStart,
+     startTime,
+     endTime,
+     description
+   } = this.state.events
 
-//   const newEvent ={
-//     title,
-//     dateStart,
-//     startTime,
-//     endTime,
-//     description
-//   }
-//   createEvent({ ...newEvent }).then(() =>
-//   fetchTasksList().then(events => {
-//     this.setState({
-//       events:events
-//     })
-//   })
-//   )
-       
-//   };
+   const newEvent ={
+     title,
+     dateStart,
+     startTime,
+     endTime,
+     description
+   }
+   createEvent({ ...newEvent }).then(() =>
+   fetchTasksList().then(events => {
+     this.setState({
+       events:events
+     })
+   }) )
+  };
 
 
 
@@ -121,7 +119,7 @@ class App extends Component {
            {this.state.popupShown && (
                <Popup 
                   fetchEvents={this.fetchEvents}
-                   // onCreate={this.onCreate}
+                   onCreate={this.onCreate}
                    closePop={this.closePop} />         
              )}
       </>)
