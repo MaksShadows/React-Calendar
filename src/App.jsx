@@ -17,13 +17,13 @@ class App extends Component {
     months:  moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
     events: [
-    //   {
-    //   title: "",
-    //   dateStart: "",
-    //   startTime: "",
-    //   endTime: "",
-    //   description: "",
-    // }
+       {
+       title: "",
+       dateStart: "",
+       startTime: "",
+       endTime: "",
+       description: "",
+      }
   ]
 
   }
