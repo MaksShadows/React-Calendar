@@ -4,8 +4,8 @@ import Popup from './components/Popup';
 import Main from "./components/main/Main";
 import moment from "moment";
 import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
-import {fetchTasksList
-  //createEvent
+import {fetchTasksList,
+  createEvent
 } from "../src/gateway/eventsGatway.js";
 
 
@@ -16,13 +16,15 @@ class App extends Component {
     monday: 0,
     months:  moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
-    events: [{
-      title: "",
-      dateStart: "",
-      startTime: "",
-      endTime: "",
-      description: "",
-    }]
+    events: [
+    //   {
+    //   title: "",
+    //   dateStart: "",
+    //   startTime: "",
+    //   endTime: "",
+    //   description: "",
+    // }
+  ]
 
   }
   componentDidMount() {
