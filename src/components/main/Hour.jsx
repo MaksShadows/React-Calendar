@@ -1,10 +1,17 @@
 import React from "react";
 import Event from "../Event";
+import RedLine from "../main/RedLine";
 import  formatMins  from '../common/utilities.js';
 
 
 
-const Hour = ({ dataHour, hourEvents }) => {
+
+const Hour = ({ dataHour, hourEvents, hour}) => {
+
+    const today = new Date();
+
+    const isRedLine = today.getDay()  && hour === new Date().getHours();
+
 
   return (
       <div className="column-item"  data-time={dataHour + 1}>
@@ -21,9 +28,10 @@ const Hour = ({ dataHour, hourEvents }) => {
                       marginTop={dateFrom.getMinutes()}
                       time={`${eventStart} - ${eventEnd}`}
                       title={title}
-                  />
+                  /> 
               )
           })}
+          {isRedLine && <RedLine />}
       </div>
   )
 }

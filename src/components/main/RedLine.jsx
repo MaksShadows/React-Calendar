@@ -1,19 +1,31 @@
-import React from "react";
-import moment from 'moment';
+import React, { Component } from 'react';
+//import moment from 'moment';
 
 
-const RedLine = () => {
+class RedLine extends Component {
 
-  const timeHour = moment().hour()
-  const timeMin = moment().minute()
-  
-  const style = {
-    }
-  return (
-    <div style={style} className="redLine">
-     
-    </div>)
-  
+  state = {
+    hourRedLine: new Date().getHours(),
+    minRedLine: new Date().getMinutes(),
+  };
+
+  componentDidMount() {
+     this.timeRed =  setInterval(() => {
+      this.setState({
+        hourRedLine: new Date().getHours(),
+        minRedLine: new Date().getMinutes(),
+      });
+    }, 50000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timeRed);
+}
+
+  render() {
+    return (
+      <div className="redLine"></div>
+    )
+  }
 };
 
 export default RedLine;
