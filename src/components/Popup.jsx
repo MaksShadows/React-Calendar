@@ -1,5 +1,5 @@
 import React from 'react';
-import {fetchTasksList,  createEvent } from "../gateway/eventsGatway.js";
+import {fetchTasksList} from "../gateway/eventsGatway.js";
 
 
 class Popup extends React.Component {
@@ -24,10 +24,10 @@ class Popup extends React.Component {
      });
   };
 
-  //  handleEventCreate = (event) => {
-  //    event.preventDefault();
+  //   handleEventCreate = (event) => {
+  //     event.preventDefault();
 
-  //   createEvent(this.state.events).then(fetchTasksList())
+  //    createEvent(this.state.events).then(fetchTasksList())
   //  };
 
 
@@ -47,7 +47,7 @@ class Popup extends React.Component {
 
 
 render() {
-    const {closePop, title, dateStart,startTime,endTime, description,}= this.props;
+    const {closePop, title, dateStart,startTime,endTime, description,  onCreate}= this.props;
   return (
       <div className="popup-layer">
       <form className="popup event"   onSubmit={() => this.handleSubmit} >
@@ -88,7 +88,7 @@ render() {
         </div>
         <div className="footer-popup">
         <button type="submit"
-          onClick={() => createEvent(this.state.events).then(fetchTasksList())}
+          onClick={() => onCreate(this.state.events).then(fetchTasksList())}
          className="btn_save">Save</button>
            <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>

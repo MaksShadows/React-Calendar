@@ -38,8 +38,8 @@ class App extends Component {
     })
   );
 
-  onCreate = events=> {
-   events.preventDefault();
+  onCreate = event=> {
+   event.preventDefault();
 
    const {
      title,
