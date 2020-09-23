@@ -18,6 +18,7 @@ const Week = ({weekStart, events}) => {
                     <Day key={dayStart.getDate()}
                     dataDay={dayStart.getDate()} 
                     dayEvents={dayEvents}
+                    events={events}
                       />
                 )
              })

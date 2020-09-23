@@ -5,7 +5,7 @@ import Main from "./components/main/Main";
 import moment from "moment";
 import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
 import {fetchTasksList,
-  createEvent
+//createEvent
 } from "../src/gateway/eventsGatway.js";
 
 
@@ -34,10 +34,10 @@ class App extends Component {
 
   
 
-   onCreate =   (newEvent) => {
+  //  onCreate =   (newEvent) => {
 
-    createEvent(newEvent).then(this.fetchEvents());
-	};
+  //   createEvent(newEvent).then(this.fetchEvents());
+	// };
 
 
   handlePopup = () => {
@@ -96,7 +96,7 @@ class App extends Component {
                <Popup 
                    fetchEvents={this.fetchEvents}
                    events={this.state.events}
-                   handleCreateEvent={this.onCreate}
+                   //handleCreateEvent={this.onCreate}
                    closePop={this.closePop} />         
              )}
       </>)
