@@ -16,6 +16,7 @@ const Day = ({ dataDay, dayEvents }) => {
                   <Hour
                       key={dataDay + hour}
                       dataHour={hour}
+                      hour={hour}
                       hourEvents={hourEvents}
                   />
               )
