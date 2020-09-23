@@ -30,7 +30,9 @@ class Popup extends React.Component {
   // };
 
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
+    console.log(this.formData);
+
     event.preventDefault();
      const formData = [...new FormData(this.formRef)].reduce(
           (acc, [name, value]) => ({ ...acc, [name]: value }),
@@ -38,7 +40,6 @@ class Popup extends React.Component {
        );
         this.props.onSubmit(formData);
   };
-
 
 
 render() {
@@ -50,7 +51,8 @@ render() {
         <input className="event__name"
         value={title}
         onChange={this.handleChange}
-        name="eventName" type="text"
+        name="title" 
+        type="text"
          placeholder="Add title " />
         <div className="popup__picker">
           <input className="event__date-start input"
@@ -83,7 +85,7 @@ render() {
         </div>
         <div className="footer-popup">
         <button type="submit"
-          onClick={() => onCreate(this.state.events).then(fetchTasksList())}
+          onClick={() => onCreate(this.state).then(fetchTasksList())}
           className="btn_save">Save</button>
            <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>
