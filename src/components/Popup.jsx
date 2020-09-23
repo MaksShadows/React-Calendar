@@ -5,14 +5,13 @@ import {fetchTasksList} from "../gateway/eventsGatway.js";
 class Popup extends React.Component {
 
   state = {
-    events: [{
-      title: "",
-      dateStart: "",
-      startTime: "",
-      endTime: "",
-      description: "",
-    }]
+    title: "",
+    dateStart: "",
+    startTime: "",
+    endTime: "",
+    description: "",
   };
+
 
 
   handleChange = event => {
@@ -24,11 +23,11 @@ class Popup extends React.Component {
      });
   };
 
-  //   handleEventCreate = (event) => {
-  //     event.preventDefault();
+  // handleEventCreate = event => {
+  //  event.preventDefault();
 
-  //    createEvent(this.state.events).then(fetchTasksList())
-  //  };
+  //  this.props.handleCreateEvent(this.state)
+  // };
 
 
   handleSubmit = (event) => {
@@ -40,14 +39,10 @@ class Popup extends React.Component {
         this.props.onSubmit(formData);
   };
 
-  setRef = (node) => {
-    this.formRef = node;
-
-  };
 
 
 render() {
-    const {closePop, title, dateStart,startTime,endTime, description,  onCreate}= this.props;
+    const {closePop, title, dateStart,startTime,endTime, description, onCreate}= this.props;
   return (
       <div className="popup-layer">
       <form className="popup event"   onSubmit={() => this.handleSubmit} >
@@ -89,7 +84,7 @@ render() {
         <div className="footer-popup">
         <button type="submit"
           onClick={() => onCreate(this.state.events).then(fetchTasksList())}
-         className="btn_save">Save</button>
+          className="btn_save">Save</button>
            <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>
           </button> 

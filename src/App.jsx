@@ -16,54 +16,28 @@ class App extends Component {
     monday: 0,
     months:  moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
-    events: [
-       {
-       title: "",
-       dateStart: "",
-       startTime: "",
-       endTime: "",
-       description: "",
-      }
-  ]
-
+    events: [],
   }
+
+
   componentDidMount() {
     this.fetchEvents();
   }
  
+ 
   fetchEvents = () =>
   fetchTasksList().then((events) =>
     this.setState({
-      events: events
+      events,
     })
   );
 
-  onCreate = event=> {
-   event.preventDefault();
+  
 
-   const {
-     title,
-     dateStart,
-     startTime,
-     endTime,
-     description
-   } = this.state.events
+   onCreate =   (newEvent) => {
 
-   const newEvent ={
-     title,
-     dateStart,
-     startTime,
-     endTime,
-     description
-   }
-   createEvent({ ...newEvent }).then(() =>
-   fetchTasksList().then(events => {
-     this.setState({
-       events:events
-     })
-   }) )
-  };
-
+    createEvent(newEvent).then(this.fetchEvents());
+	};
 
 
   handlePopup = () => {
@@ -120,8 +94,9 @@ class App extends Component {
            />
            {this.state.popupShown && (
                <Popup 
-                  fetchEvents={this.fetchEvents}
-                   onCreate={this.onCreate}
+                   fetchEvents={this.fetchEvents}
+                   events={this.state.events}
+                   handleCreateEvent={this.onCreate}
                    closePop={this.closePop} />         
              )}
       </>)
