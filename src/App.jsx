@@ -34,12 +34,10 @@ class App extends Component {
 
   
 
-   onCreate =  () => {
+   onCreate = events => {
 
-    const newEvent = this.state.events
-
-     createEvent(newEvent).then(this.fetchEvents());
-	 };
+    createEvent(events).then(() => this.fetchTasks());
+  };
 
 
   handlePopup = () => {
@@ -98,7 +96,7 @@ class App extends Component {
                <Popup 
                    fetchEvents={this.fetchEvents}
                    events={this.state.events}
-                   //handleCreateEvent={this.onCreate}
+                   onCreate={this.onCreate}
                    closePop={this.closePop} />         
              )}
       </>)

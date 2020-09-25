@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import Navigation  from './Navigation'
 import Week from './Week';
 import SaidBar from "./SaidBar.jsx";
-//import events from '../../gateway/events.js';
+import events from '../../gateway/events.js';
 
 
 class Main extends Component {
 
-  // state = {
-  //      events,
-  //  }
+  state = {
+        events,
+   }
 
   render() {
-      const { showPopup, week, weekStart, events} = this.props;
+      const { showPopup, week, weekStart,
+        // events
+        } = this.props;
 
       return (
       
@@ -20,7 +22,7 @@ class Main extends Component {
     <Navigation  week={week} />
      <div className="main-wrapper">
      <SaidBar />
-      <Week weekStart={weekStart} events={events}/> 
+      <Week weekStart={weekStart} events={this.state.events}/> 
      </div>
    </section>
       )
