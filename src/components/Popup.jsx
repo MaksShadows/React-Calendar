@@ -4,15 +4,6 @@ import React, { Component } from 'react';
 
 class Popup extends Component {
 
-  state = {
-    title: "",
-    dateStart: null,
-    startTime: "",
-    endTime: "",
-    description: "",
-  }
-
-
 
   handleChange = event => {
      const { name, value } = event.target;
@@ -35,22 +26,22 @@ class Popup extends Component {
   handleSubmit = event => {
 
     event.preventDefault();
-    this.props.onCreate();
+    this.props.onCreateEvent();
 
   }
 
 
 render() {
     const {closePop,
-      // title, dateStart,startTime,endTime, description, 
-//onCreate
+      title, dateStart,dateFrom, dateTo, description, 
+     // onCreate
     }= this.props;
   return (
       <div className="popup-layer">
       <form className="popup event"   onSubmit={() => this.handleSubmit} >
         <span className="popup__btn-close" onClick={closePop} ><img className="close" src="https://img.icons8.com/color/48/000000/close-window.png" alt="close" /></span>
         <input className="event__name"
-        value={this.state.title}
+        value={title}
         onChange={this.handleChange}
         name="title" 
         type="text"
@@ -59,20 +50,20 @@ render() {
           <input className="event__date-start input"
             onChange={this.handleChange} 
             name="startDate" required type="date" 
-             value={this.state.dateStart} 
+             value={dateStart} 
              />
           <input type="time"
            className="startTime_place input"
            name="startTime"  
            onChange={this.handleChange} 
-           value={this.state.startTime} 
+           value={dateFrom} 
            />
           <span className='line'></span>
           <input type="time"
            className="endTime_place input"
             name="endTime" 
             onChange={this.handleChange} 
-            value={this.state.endTime}
+            value={dateTo}
             />
         </div>
         <div className="centerData">
@@ -80,7 +71,7 @@ render() {
           <textarea type="text" 
           className="multiline__text" 
           onChange={this.handleChange}
-          value={this.state.description}
+          value={description}
           placeholder="Add description"
            name="description" cols="30" rows="3"></textarea>
         </div>

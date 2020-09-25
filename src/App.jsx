@@ -17,6 +17,11 @@ class App extends Component {
     months:  moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
     events: [],
+    title: "",
+    dateStart: null,
+    dateTo: "",
+    dateFrom: "",
+    description: "",
   }
 
 
@@ -34,10 +39,30 @@ class App extends Component {
 
   
 
-   onCreate = events => {
+   onCreateEvent = () => {
+     
+    const {
+      title,
+      dateStart,
+      dateFrom,
+      dateTo,
+      description,
+    } = this.state
 
-    createEvent(events).then(() => this.fetchTasks());
-  };
+    const newEvent = {
+      title,
+      dateStart,
+      dateFrom,
+      dateTo,
+      description,
+    };
+    createEvent(newEvent).then(() => {
+      this.setState({
+        events: []
+      });
+      return this.fetchEvents();
+    }); 
+   };
 
 
   handlePopup = () => {
@@ -94,10 +119,16 @@ class App extends Component {
            />
            {this.state.popupShown && (
                <Popup 
-                   fetchEvents={this.fetchEvents}
-                   events={this.state.events}
-                   onCreate={this.onCreate}
-                   closePop={this.closePop} />         
+                  // fetchEvents={this.fetchEvents}
+                  // events={this.state.events}
+                   onCreateEvent={this.onCreateEvent}
+                   closePop={this.closePop}
+                   title={this.title}
+                   dateStart={this.dateStart}
+                   dateFrom={this.dateFrom}
+                   dateTo={this.dateTo}
+                   description={this.description}
+                    />         
              )}
       </>)
   }
