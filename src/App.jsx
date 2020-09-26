@@ -5,7 +5,7 @@ import Main from "./components/main/Main";
 import moment from "moment";
 import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
 import {fetchTasksList,
-createEvent
+//createEvent
 } from "../src/gateway/eventsGatway.js";
 
 
@@ -17,11 +17,7 @@ class App extends Component {
     months:  moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
     events: [],
-    title: "",
-    dateStart: null,
-    dateTo: "",
-    dateFrom: "",
-    description: "",
+    
   }
 
 
@@ -39,30 +35,30 @@ class App extends Component {
 
   
 
-   onCreateEvent = () => {
+  //  onCreateEvent = () => {
      
-    const {
-      title,
-      dateStart,
-      dateFrom,
-      dateTo,
-      description,
-    } = this.state
+  //   const {
+  //     title,
+  //     dateStart,
+  //     dateFrom,
+  //     dateTo,
+  //     description,
+  //   } = this.state
 
-    const newEvent = {
-      title,
-      dateStart,
-      dateFrom,
-      dateTo,
-      description,
-    };
-    createEvent(newEvent).then(() => {
-      this.setState({
-        events: []
-      });
-      return this.fetchEvents();
-    }); 
-   };
+  //   const newEvent = {
+  //     title,
+  //     dateStart,
+  //     dateFrom,
+  //     dateTo,
+  //     description,
+  //   };
+  //   createEvent(newEvent).then(() => {
+  //     this.setState({
+  //       events: []
+  //     });
+  //     return this.fetchEvents();
+  //   }); 
+  //  };
 
 
   handlePopup = () => {
@@ -101,6 +97,8 @@ class App extends Component {
     });  
   };
 
+ 
+
   render() {
       
       return (
@@ -121,13 +119,9 @@ class App extends Component {
                <Popup 
                   // fetchEvents={this.fetchEvents}
                   // events={this.state.events}
-                   onCreateEvent={this.onCreateEvent}
+                  // onCreateEvent={this.onCreateEvent}
                    closePop={this.closePop}
-                   title={this.title}
-                   dateStart={this.dateStart}
-                   dateFrom={this.dateFrom}
-                   dateTo={this.dateTo}
-                   description={this.description}
+                
                     />         
              )}
       </>)
