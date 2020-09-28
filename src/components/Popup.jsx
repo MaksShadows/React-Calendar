@@ -41,6 +41,7 @@ class Popup extends Component {
 
     const formData = Object.fromEntries(new FormData(formElem));
 
+  //  Object.entries({...object});
 
    // Object.keys(formData);
   //Object.values(formData);
