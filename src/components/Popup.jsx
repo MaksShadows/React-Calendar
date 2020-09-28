@@ -41,6 +41,10 @@ class Popup extends Component {
 
     const formData = Object.fromEntries(new FormData(formElem));
 
+
+   // Object.keys(formData);
+  //Object.values(formData);
+ // Object.entries(formData);
    // Object.keys(formData).map((value) => Object.values(formData[value]));
     // Object.values(formData).map(arr => Object.values(arr))
 
