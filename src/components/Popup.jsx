@@ -41,21 +41,14 @@ class Popup extends Component {
 
     const formData = Object.fromEntries(new FormData(formElem));
 
-  //  Object.entries({...object});
+    const newObj = [...Object.entries(formData)];
 
-   // Object.keys(formData);
-  //Object.values(formData);
- // Object.entries(formData);
-   // Object.keys(formData).map((value) => Object.values(formData[value]));
-    // Object.values(formData).map(arr => Object.values(arr))
-
-
-    console.log(JSON.stringify(formData));
+    console.log(newObj);
 
     //this.props.onCreateEvent();
 
     //cчитать форму в обьект +
-    //сохранить обьект в массиве
+    //сохранить обьект в массиве +
 
   }
 
@@ -106,7 +99,7 @@ render() {
         </div>
         <div className="footer-popup">
         <button type="submit"
-         // onClick={() => createEvent(this.state).then(fetchTasksList())}
+        //  onClick={() => createEvent(this.state).then(fetchTasksList())}
           className="btn_save">Save</button>
            {/* <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>
