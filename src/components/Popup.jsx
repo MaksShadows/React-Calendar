@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import {fetchTasksList} from "../gateway/eventsGatway.js";
+//import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
 
 
 class Popup extends Component {
@@ -33,13 +33,24 @@ class Popup extends Component {
 
 
 
+
   handleSubmit = event => {
-     const toString = Object.prototype.toString;
-    console.log('Отправленние таски: ' + toString.call(this.state) );
     event.preventDefault();
 
+    const formElem = document.querySelector('.popup');
+
+    const formData = Object.fromEntries(new FormData(formElem));
+
+   // Object.keys(formData).map((value) => Object.values(formData[value]));
+    // Object.values(formData).map(arr => Object.values(arr))
+
+
+    console.log(JSON.stringify(formData));
 
     //this.props.onCreateEvent();
+
+    //cчитать форму в обьект +
+    //сохранить обьект в массиве
 
   }
 
@@ -90,7 +101,7 @@ render() {
         </div>
         <div className="footer-popup">
         <button type="submit"
-          //onClick={() => onCreate(this.state).then(fetchTasksList())}
+         // onClick={() => createEvent(this.state).then(fetchTasksList())}
           className="btn_save">Save</button>
            {/* <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>
