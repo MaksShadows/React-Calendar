@@ -34,8 +34,8 @@ class Popup extends Component {
 
 
   handleSubmit = event => {
-
-    console.log('Отправленние таски: ' + this.state);
+     const toString = Object.prototype.toString;
+    console.log('Отправленние таски: ' + toString.call(this.state) );
     event.preventDefault();
 
 
