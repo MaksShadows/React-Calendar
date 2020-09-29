@@ -6,7 +6,7 @@ import moment from "moment";
 
 
 const Header =({onCreate,onToday, nextWeek, prevWeek, months}) => {
-  const currenMonth = moment(months).format('MMMM') === moment(months).add("month").format('MMMM');
+  const monthsEnd = moment(months).endOf('isoWeek');  
 
 
   return (
@@ -19,7 +19,7 @@ const Header =({onCreate,onToday, nextWeek, prevWeek, months}) => {
           <div className="navigate__arows_left" onClick={prevWeek}></div>
            <div className="navigate__arows_right"onClick={nextWeek}></div>
         </div>
-  <div className="navigate__MonthAndYear">{months.format("MMMM")}{currenMonth}</div>
+  <div className="navigate__MonthAndYear">{`${months.format('MMM')}-${monthsEnd.format('MMM YYYY')}`}</div>
       </div>
     </header>
   )
