@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
 
 
-class Popup extends Component {
+class Popup extends React.Component {
 
 
-  state= {
+  state={
     name: "",
     dateStart: "",
     dateTo: "",
@@ -13,7 +13,7 @@ class Popup extends Component {
     description: "",
   }
 
-  
+
 
 
   handleChange = event => {
@@ -28,18 +28,18 @@ class Popup extends Component {
 
 
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
-     const formElem = document.querySelector('.popup');
+      const formElem = document.querySelector('.popup');
 
-    const formData = Object.fromEntries(new FormData(formElem));
+     const formData = Object.fromEntries(new FormData(formElem));
 
-     const newObj = [...Object.entries(formData)];
+      const newObj = [...Object.entries(formData)];
 
-     console.log(newObj);
+      console.log(newObj);
 
-    //this.props.onCreateEvent();
+    //this.props.createEvent();
 
     //cчитать форму в обьект +
     //сохранить обьект в массиве +
@@ -51,7 +51,7 @@ render() {
     const {closePop }= this.props;
   return (
       <div className="popup-layer">
-      <form className="popup event"   onSubmit={this.handleSubmit} >
+      <form className="popup event"  onSubmit={this.handleSubmit} >
         <span className="popup__btn-close" onClick={closePop} ><img className="close" src="https://img.icons8.com/color/48/000000/close-window.png" alt="close" /></span>
         <input className="event__name"
         value={this.state.name}
@@ -91,7 +91,10 @@ render() {
         <div className="footer-popup">
         <button 
         type="submit"
-         onClick={() => createEvent().then(fetchTasksList())}
+         onClick={() => createEvent(this.state)
+          .then(fetchTasksList())
+          .then(this.props.closePop)
+        }
           className="btn_save">Save</button>
            {/* <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>

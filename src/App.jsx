@@ -23,7 +23,11 @@ class App extends Component {
   componentDidMount() {
     this.fetchEvents();
   }
- 
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.events === this.state.events) this.fetchEvents();
+  }
+
  
   fetchEvents = () =>
   fetchTasksList().then(events =>
