@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
-//import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
+import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
 
 
 class Popup extends Component {
 
 
-  constructor(props) {
-    super(props);
-    this.state = {
-     name: "",
+  state= {
+    name: "",
     dateStart: "",
     dateTo: "",
     dateFrom: "",
-    description: ""
-    };
-
-    
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    description: "",
   }
+
+  
 
 
   handleChange = event => {
@@ -37,13 +31,13 @@ class Popup extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const formElem = document.querySelector('.popup');
+     const formElem = document.querySelector('.popup');
 
     const formData = Object.fromEntries(new FormData(formElem));
 
-    const newObj = [...Object.entries(formData)];
+     const newObj = [...Object.entries(formData)];
 
-    console.log(newObj);
+     console.log(newObj);
 
     //this.props.onCreateEvent();
 
@@ -54,10 +48,7 @@ class Popup extends Component {
 
 
 render() {
-    const {closePop,
-    //  name, dateStart,dateFrom, dateTo, description, 
-     // onCreate
-     }= this.props;
+    const {closePop }= this.props;
   return (
       <div className="popup-layer">
       <form className="popup event"   onSubmit={this.handleSubmit} >
@@ -98,8 +89,9 @@ render() {
            name="description" cols="30" rows="3"></textarea>
         </div>
         <div className="footer-popup">
-        <button type="submit"
-        //  onClick={() => createEvent(this.state).then(fetchTasksList())}
+        <button 
+        type="submit"
+         onClick={() => createEvent().then(fetchTasksList())}
           className="btn_save">Save</button>
            {/* <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>

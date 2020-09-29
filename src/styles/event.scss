@@ -18,6 +18,20 @@
 }
 
 .delete-event-btn {
+  display: none;
   cursor: pointer;
   border: none;
+
+}
+
+.active_event:hover{
+  width: 120%;
+  height: 120%;
+  color: white;
+  z-index: 2;
+
+ .delete-event-btn {
+     display: flex;
+     color: black;
+   }
 }

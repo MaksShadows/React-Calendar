@@ -13,7 +13,9 @@ import React from 'react';
        <div style={eventStyle} className="active_event" >
             <div className="event__title">{title}</div>
            <div className="event__time">{time}</div>
-           <div className="delete-event-btn">Delete</div>
+           <div className="delete-event-btn">
+            Delete
+            </div>
        </div>
        )
    }

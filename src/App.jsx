@@ -20,47 +20,19 @@ class App extends Component {
     
   }
 
-
   componentDidMount() {
     this.fetchEvents();
   }
  
  
   fetchEvents = () =>
-  fetchTasksList().then((events) =>
+  fetchTasksList().then(events =>
     this.setState({
       events,
     })
   );
 
   
-
-  //  onCreateEvent = () => {
-     
-  //   const {
-  //     title,
-  //     dateStart,
-  //     dateFrom,
-  //     dateTo,
-  //     description,
-  //   } = this.state
-
-  //   const newEvent = {
-  //     title,
-  //     dateStart,
-  //     dateFrom,
-  //     dateTo,
-  //     description,
-  //   };
-  //   createEvent(newEvent).then(() => {
-  //     this.setState({
-  //       events: []
-  //     });
-  //     return this.fetchEvents();
-  //   }); 
-  //  };
-
-
   handlePopup = () => {
     this.setState({
     popupShown: true,
@@ -117,8 +89,7 @@ class App extends Component {
            />
            {this.state.popupShown && (
                <Popup 
-                  // fetchEvents={this.fetchEvents}
-                  // events={this.state.events}
+                  events={this.state.events}
                   // onCreateEvent={this.onCreateEvent}
                    closePop={this.closePop}
                 
