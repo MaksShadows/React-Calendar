@@ -1,9 +1,10 @@
 import React from "react";
 import Hour from "../main/Hour";
+import PropTypes from 'prop-types';
 
 
 
-const Day = ({ dataDay, dayEvents }) => {
+const Day = ({ dataDay, dayEvents, dayStart, events}) => {
   const hours = Array(24).fill().map((val, index) => index);
 
   return (
@@ -17,6 +18,8 @@ const Day = ({ dataDay, dayEvents }) => {
                       key={dataDay + hour}
                       dataHour={hour}
                       hour={hour}
+                      events={events}
+                      dayStart={dayStart}
                       hourEvents={hourEvents}
                   />
               )
@@ -27,3 +30,8 @@ const Day = ({ dataDay, dayEvents }) => {
 
 
 export default Day;
+
+Day.propTypes = {
+    events: PropTypes.array,
+    
+  };

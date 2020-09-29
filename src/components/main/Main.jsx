@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Navigation  from './Navigation'
 import Week from './Week';
 import SaidBar from "./SaidBar.jsx";
+import PropTypes from 'prop-types';
+
 //import events from '../../gateway/events.js';
 
 
@@ -31,3 +33,9 @@ class Main extends Component {
 
 
 export default Main;
+
+Main.propTypes = {
+  showPopup: PropTypes.func,
+  events: PropTypes.array,
+  week: PropTypes.number,
+};

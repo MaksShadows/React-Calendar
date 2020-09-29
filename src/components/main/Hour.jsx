@@ -6,11 +6,10 @@ import  formatMins  from '../common/utilities.js';
 
 
 
-const Hour = ({ dataHour, hourEvents, hour}) => {
+const Hour = ({ dataHour, hourEvents, hour, dayStart}) => {
 
-    const today = new Date();
 
-    const isRedLine = today.getDay()  && hour === new Date().getHours();
+    const isRedLine = dayStart.toDateString() === new Date().toDateString() && hour === new Date().getHours();
 
 
   return (
@@ -37,3 +36,5 @@ const Hour = ({ dataHour, hourEvents, hour}) => {
 }
 
 export default Hour;
+
+

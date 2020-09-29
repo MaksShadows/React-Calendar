@@ -1,5 +1,6 @@
 import React from 'react';
 import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
+import PropTypes from 'prop-types';
 
 
 class Popup extends React.Component {
@@ -107,3 +108,9 @@ render() {
 };
 
 export default Popup;
+
+Popup.propTypes = {
+  closePop: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  handleChange: PropTypes.func,
+};

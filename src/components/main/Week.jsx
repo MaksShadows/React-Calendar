@@ -1,6 +1,7 @@
 import React from 'react';
 import Day from './Day';
 
+import PropTypes from 'prop-types';
 
 
 const Week = ({weekStart, events}) => {
@@ -18,6 +19,7 @@ const Week = ({weekStart, events}) => {
                     <Day key={dayStart.getDate()}
                     dataDay={dayStart.getDate()} 
                     dayEvents={dayEvents}
+                    dayStart={dayStart}
                     events={events}
                       />
                 )
@@ -29,3 +31,8 @@ const Week = ({weekStart, events}) => {
 }
 
 export default Week;
+
+Week.propTypes = {
+    weekStart: PropTypes.array,
+    events: PropTypes.array,
+  };
