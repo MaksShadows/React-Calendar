@@ -92,7 +92,13 @@ render() {
         <div className="footer-popup">
         <button 
         type="submit"
-         onClick={() => createEvent(this.state)
+         onClick={() => createEvent({
+          name: this.state.name,
+          dateStart: this.state.dateStart,
+          dateTo: this.state.dateTo,
+          dateFrom: this.state.dateFrom,
+          description: this.state.description,
+         })
           .then(fetchTasksList())
           .then(this.props.closePop)
         }

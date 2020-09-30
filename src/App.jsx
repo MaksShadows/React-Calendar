@@ -4,7 +4,7 @@ import Popup from './components/Popup';
 import Main from "./components/main/Main";
 import moment from "moment";
 import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
-import {fetchTasksList,
+import {fetchTasksList, deleteEvent
 //createEvent
 } from "../src/gateway/eventsGatway.js";
 
@@ -24,15 +24,11 @@ class App extends Component {
     this.fetchEvents();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.events === this.state.events) this.fetchEvents();
-  }
-
  
   fetchEvents = () =>
-  fetchTasksList().then(events =>
+  fetchTasksList().then(eventsList =>
     this.setState({
-      events,
+      events: eventsList,
     })
   );
 
@@ -73,7 +69,9 @@ class App extends Component {
     });  
   };
 
- 
+  handleDeleteEvent = (id) => {
+    deleteEvent(id).then(() => this.fetchEvents());
+  };
 
   render() {
       
@@ -89,6 +87,7 @@ class App extends Component {
             week={this.state.monday}
             showPopup={this.handlePopup} 
             events={this.state.events}
+            onDeleteEvent={this.handleDeleteEvent}
 
            />
            {this.state.popupShown && (

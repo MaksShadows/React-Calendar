@@ -4,18 +4,18 @@ import Week from './Week';
 import SaidBar from "./SaidBar.jsx";
 import PropTypes from 'prop-types';
 
-//import events from '../../gateway/events.js';
+import events from '../../gateway/events.js';
 
 
 class Main extends Component {
 
-  // state = {
-  //       events,
-  //  }
+   state = {
+        events,
+    }
 
   render() {
-      const { showPopup, week, weekStart,
-        events
+      const { showPopup, week, weekStart, onDeleteEvent
+       // events
         } = this.props;
 
       return (
@@ -24,7 +24,9 @@ class Main extends Component {
     <Navigation  week={week} />
      <div className="main-wrapper">
      <SaidBar />
-      <Week weekStart={weekStart} events={events}/> 
+      <Week weekStart={weekStart}
+       onDeleteEvent={onDeleteEvent}
+       events={this.state.events}/> 
      </div>
    </section>
       )

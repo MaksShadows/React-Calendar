@@ -27,13 +27,13 @@
   border-radius: 30px;
   border: none;
   outline: none;
-  box-shadow: 0 5px 28px rgba(0,0,0,0.25);
-  background-color: white;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.14);  
+  background-color: rgba(228, 226, 226, 0.959);
   margin-right: 50px;
   font-size: 18px;
   &:hover{
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 15px 15px rgba(0,0,0,0.22);
-      transition: 1s;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.14);
+          transition: 1s;
       cursor: pointer;
   }
 }
