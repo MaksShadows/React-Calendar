@@ -14,7 +14,7 @@ class RedLine extends Component {
         hourRedLine: new Date().getHours(),
         minRedLine: new Date().getMinutes(),
       });
-    }, 50000);
+    }, 5000);
   }
   componentWillUnmount() {
     clearInterval(this.timeRed);
