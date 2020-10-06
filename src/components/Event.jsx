@@ -16,7 +16,8 @@ import React from 'react';
            <div className="delete-event-btn"
           onClick={onDeleteEvent}
            >
-            Delete
+       <i className="Tiny material-icons material-icons-delete">delete</i>
+       Delete
             </div>
        </div>
        )

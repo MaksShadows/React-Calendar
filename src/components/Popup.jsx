@@ -32,15 +32,16 @@ class Popup extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+    const newEvent = this.state;
+
       const formElem = document.querySelector('.popup');
 
      const formData = Object.fromEntries(new FormData(formElem));
 
-      const newObj = [...Object.entries(formData)];
+      const newObj = [...Object.entries(formData), newEvent];
 
       console.log(newObj);
 
-    //this.props.createEvent();
 
     //cчитать форму в обьект +
     //сохранить обьект в массиве +
@@ -49,7 +50,7 @@ class Popup extends React.Component {
 
 
 render() {
-    const {closePop }= this.props;
+    const {closePop,  }= this.props;
   return (
       <div className="popup-layer">
       <form className="popup event"  onSubmit={this.handleSubmit} >
@@ -101,6 +102,7 @@ render() {
          })
           .then(fetchTasksList())
           .then(this.props.closePop)
+          .then(this.props.newEvent)
         }
           className="btn_save">Save</button>
            {/* <button className="delete-event ">

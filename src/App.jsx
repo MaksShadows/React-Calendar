@@ -22,15 +22,17 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchEvents();
+    console.log(this.state.events);
+
   }
 
  
-  fetchEvents = () =>
-  fetchTasksList().then(eventsList =>
-    this.setState({
-      events: eventsList,
-    })
-  );
+  fetchEvents = async () => {
+    const eventsList = await fetchTasksList();
+    return this.setState({ events: eventsList });
+  }
+
+  
 
   
   handlePopup = () => {
