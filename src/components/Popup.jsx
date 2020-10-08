@@ -30,15 +30,20 @@ class Popup extends React.Component {
 
 
   handleSubmit = (event) => {
+
+
     event.preventDefault();
 
     const newEvent = this.state;
+
+    createEvent(newEvent)
+
 
       const formElem = document.querySelector('.popup');
 
      const formData = Object.fromEntries(new FormData(formElem));
 
-      const newObj = [...Object.entries(formData), newEvent];
+      const newObj = [...Object.entries(formData)];
 
       console.log(newObj);
 
@@ -102,7 +107,6 @@ render() {
          })
           .then(fetchTasksList())
           .then(this.props.closePop)
-          .then(this.props.newEvent)
         }
           className="btn_save">Save</button>
            {/* <button className="delete-event ">

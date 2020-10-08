@@ -1,7 +1,7 @@
 import React from 'react';
 
 
- const Event = ({height, marginTop, title, time, onDeleteEvent}) => {
+    const Event = ({height, marginTop, title, time, onDeleteEvent }) => {
    
     const eventStyle = {
         height,
@@ -14,7 +14,7 @@ import React from 'react';
             <div className="event__title">{title}</div>
            <div className="event__time">{time}</div>
            <div className="delete-event-btn"
-          onClick={onDeleteEvent}
+          onClick={onDeleteEvent }
            >
        <i className="Tiny material-icons material-icons-delete">delete</i>
        Delete
