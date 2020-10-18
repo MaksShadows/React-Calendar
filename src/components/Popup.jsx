@@ -1,5 +1,5 @@
 import React from 'react';
-import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
+//import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
 import PropTypes from 'prop-types';
 
 
@@ -34,16 +34,15 @@ class Popup extends React.Component {
 
     event.preventDefault();
 
-    const newEvent = this.state;
-
-    createEvent(newEvent)
-
-
       const formElem = document.querySelector('.popup');
 
      const formData = Object.fromEntries(new FormData(formElem));
 
       const newObj = [...Object.entries(formData)];
+
+
+      this.props.onCreate();
+      this.props.closePop();
 
       console.log(newObj);
 
@@ -55,7 +54,7 @@ class Popup extends React.Component {
 
 
 render() {
-    const {closePop,  }= this.props;
+    const {closePop,}= this.props;
   return (
       <div className="popup-layer">
       <form className="popup event"  onSubmit={this.handleSubmit} >
@@ -98,16 +97,10 @@ render() {
         <div className="footer-popup">
         <button 
         type="submit"
-         onClick={() => createEvent({
-          name: this.state.name,
-          dateStart: this.state.dateStart,
-          dateTo: this.state.dateTo,
-          dateFrom: this.state.dateFrom,
-          description: this.state.description,
-         })
-          .then(fetchTasksList())
-          .then(this.props.closePop)
-        }
+        //  onClick={() => createEvent( this.state )
+        //   .then(fetchTasksList())
+        //   .then(this.props.closePop)
+        // }
           className="btn_save">Save</button>
            {/* <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>
