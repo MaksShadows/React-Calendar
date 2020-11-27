@@ -26,9 +26,9 @@ class App extends Component {
   }
 
 
-    componentWillReceiveProps(nextProps) {
-         this.setState({ events: nextProps.events })
-    }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.events === this.state.events) this.fetchEvents();
+  }
 
  
   fetchEvents = () => {
@@ -106,7 +106,7 @@ class App extends Component {
            />
            {this.state.popupShown && (
                <Popup 
-                  events={this.state.events}
+                 // events={this.state.events}
                   onCreate={this.onCreate}
                    closePop={this.closePop}
                 

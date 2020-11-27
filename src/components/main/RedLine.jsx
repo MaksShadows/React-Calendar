@@ -23,7 +23,7 @@ class RedLine extends Component {
   render() {
     const { hourRedLine, minRedLine} = this.state;
 
-   const style = `${hourRedLine + minRedLine / 1000/60}px`;
+   const style = `${hourRedLine  - minRedLine / (100/60)}px`;
 
     return (
       <div className="redLine" style={{top: style}}></div>

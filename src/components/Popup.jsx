@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { Component } from "react";
 import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
 import PropTypes from 'prop-types';
 
 
-class Popup extends React.Component {
+class Popup extends Component {
 
 
-  state={
-    name: "",
-    dateStart: "",
-    dateTo: "",
-    dateFrom: "",
-    description: "",
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      dateStart: "",
+      dateTo: "",
+      dateFrom: "",
+      description: "",
+    };
   }
 
 
-
-
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.events === this.state) this.fetchTasksList();
+  }
+  
   handleChange = event => {
-     const { name, value } = event.target;
+     let { name, value } = event.target;
 
      this.setState({
       [name]: value,
