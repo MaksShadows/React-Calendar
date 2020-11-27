@@ -25,6 +25,11 @@ class App extends Component {
     console.log(this.state.events);
   }
 
+
+    componentWillReceiveProps(nextProps) {
+         this.setState({ events: nextProps.events })
+    }
+
  
   fetchEvents = () => {
     fetchTasksList().then(events =>
