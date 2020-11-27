@@ -1,5 +1,5 @@
 import React from 'react';
-//import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
+import {fetchTasksList, createEvent} from "../gateway/eventsGatway.js";
 import PropTypes from 'prop-types';
 
 
@@ -41,8 +41,8 @@ class Popup extends React.Component {
       const newObj = [...Object.entries(formData)];
 
 
-      this.props.onCreate();
-      this.props.closePop();
+      //this.props.onCreate();
+     // this.props.closePop();
 
       console.log(newObj);
 
@@ -97,10 +97,10 @@ render() {
         <div className="footer-popup">
         <button 
         type="submit"
-        //  onClick={() => createEvent( this.state )
-        //   .then(fetchTasksList())
-        //   .then(this.props.closePop)
-        // }
+          onClick={() => createEvent( this.state )
+           .then(fetchTasksList())
+           .then(this.props.closePop)
+           }
           className="btn_save">Save</button>
            {/* <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>

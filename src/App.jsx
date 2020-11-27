@@ -5,7 +5,7 @@ import Main from "./components/main/Main";
 import moment from "moment";
 import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
 import {fetchTasksList, deleteEvent,
-createEvent
+//createEvent
 } from "../src/gateway/eventsGatway.js";
 
 
@@ -27,20 +27,20 @@ class App extends Component {
 
  
   fetchEvents = () => {
-    fetchTasksList().then(eventsList =>
+    fetchTasksList().then(events =>
         this.setState({
-            events: eventsList,
+            events,
         }),
     );
 };
 
-onCreate = title => {
-  const newTask = {
-      title,
-      };
+// onCreate = title => {
+//   const newTask = {
+//       title,
+//       };
 
-  createEvent(newTask).then(() => this.fetchEvents());
-};
+//   createEvent(newTask).then(() => this.fetchEvents());
+// };
   
   handlePopup = () => {
     this.setState({
