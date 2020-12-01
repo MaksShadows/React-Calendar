@@ -42,8 +42,8 @@ class Popup extends Component {
     const newObj = [...Object.entries(formData)];
 
 
-    //this.props.onSave();
-    // this.props.closePop();
+    this.props.onSave();
+    this.props.closePop();
 
     console.log(newObj);
 
@@ -98,7 +98,7 @@ class Popup extends Component {
           <div className="footer-popup">
             <button
               type="submit"
-              onClick={() => this.props.onSave}
+              //onClick={() => this.props.onSave}
               className="btn_save">Save</button>
             {/* <button className="delete-event ">
              <i className="Tiny material-icons material-icons-delete">delete</i>

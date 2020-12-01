@@ -40,9 +40,9 @@ class App extends Component {
     );
   };
 
-  onSave = event => {
-    event.preventDefault();
-    createEvent(this.state.events).then(() => this.fetchEvents());
+  onSave = () => {
+    // event.preventDefault();
+    createEvent(this.state.events).then(fetchTasksList());
   };
 
   handlePopup = () => {
