@@ -18,9 +18,7 @@ class Popup extends Component {
   }
 
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.events === this.state) this.fetchTasksList();
-  }
+ 
   
   handleChange = event => {
      let { name, value } = event.target;
