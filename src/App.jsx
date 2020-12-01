@@ -18,7 +18,11 @@ class App extends Component {
     months: moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
     events: [],
-
+    name: "",
+    dateStart: "",
+    dateTo: "",
+    dateFrom: "",
+    description: "",
   }
 
   componentDidMount() {
@@ -41,9 +45,25 @@ class App extends Component {
   };
 
   onSave = () => {
-    // event.preventDefault();
-    createEvent(this.state.events).then(fetchTasksList());
+    //event.preventDefault();
+
+    const {
+      name,
+      dateStart,
+      dateTo,
+      dateFrom,
+      description,
+    } = this.state
+    const newEvent = {
+      name,
+      dateStart,
+      dateTo,
+      dateFrom,
+      description,
+    }
+    createEvent(newEvent).then(fetchTasksList());
   };
+
 
   handlePopup = () => {
     this.setState({
