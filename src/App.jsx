@@ -3,9 +3,10 @@ import Header from './components/header/Header';
 import Popup from './components/Popup';
 import Main from "./components/main/Main";
 import moment from "moment";
-import {generateWeekRange, getStartOfWeek}  from "../src/components/common/utilities.js";
-import {fetchTasksList, deleteEvent,
-//createEvent
+import { generateWeekRange, getStartOfWeek } from "../src/components/common/utilities.js";
+import {
+  fetchTasksList, deleteEvent,
+  createEvent
 } from "../src/gateway/eventsGatway.js";
 
 
@@ -14,10 +15,10 @@ class App extends Component {
   state = {
     popupShown: false,
     monday: 0,
-    months:  moment().startOf("isoWeek"),
+    months: moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
     events: [],
-    
+
   }
 
   componentDidMount() {
@@ -30,39 +31,36 @@ class App extends Component {
     if (prevState.events === this.state.events) this.fetchEvents();
   }
 
- 
+
   fetchEvents = () => {
     fetchTasksList().then(events =>
-        this.setState({
-            events,
-        }),
+      this.setState({
+        events,
+      }),
     );
-};
+  };
 
-// onCreate = title => {
-//   const newTask = {
-//       title,
-//       };
+  onSave = event => {
+    event.preventDefault();
+    createEvent(this.state.events).then(() => this.fetchEvents());
+  };
 
-//   createEvent(newTask).then(() => this.fetchEvents());
-// };
-  
   handlePopup = () => {
     this.setState({
-    popupShown: true,
-  });
+      popupShown: true,
+    });
   };
 
-   closePop = () => {
+  closePop = () => {
     this.setState({
-    popupShown: false,
-  });
+      popupShown: false,
+    });
   };
 
-   nextWeek = () => {
+  nextWeek = () => {
     this.setState({
-      monday: this.state.monday + 7 ,
-      months:  moment(this.state.months).add(7, "days")
+      monday: this.state.monday + 7,
+      months: moment(this.state.months).add(7, "days")
 
     });
   };
@@ -70,7 +68,7 @@ class App extends Component {
   prevWeek = () => {
     this.setState({
       monday: this.state.monday - 7,
-      months:  moment(this.state.months).subtract(7, "days")
+      months: moment(this.state.months).subtract(7, "days")
 
     });
   };
@@ -80,7 +78,7 @@ class App extends Component {
       monday: 0,
       months: moment().startOf("isoWeek")
 
-    });  
+    });
   };
 
   handleDeleteEvent = (id) => {
@@ -88,30 +86,30 @@ class App extends Component {
   };
 
   render() {
-      
-      return (
+
+    return (
       <>
-          <Header months={this.state.months}
+        <Header months={this.state.months}
           nextWeek={this.nextWeek}
           prevWeek={this.prevWeek}
           onToday={this.handleToday}
-          onCreate={this.handlePopup} 
-          />
-          <Main weekStart={this.state.weekStart}
-            week={this.state.monday}
-            showPopup={this.handlePopup} 
-            events={this.state.events}
-            onDeleteEvent={this.handleDeleteEvent}
+          onCreate={this.handlePopup}
+        />
+        <Main weekStart={this.state.weekStart}
+          week={this.state.monday}
+          showPopup={this.handlePopup}
+          events={this.state.events}
+          onDeleteEvent={this.handleDeleteEvent}
 
-           />
-           {this.state.popupShown && (
-               <Popup 
-                 // events={this.state.events}
-                  onCreate={this.onCreate}
-                   closePop={this.closePop}
-                
-                    />         
-             )}
+        />
+        {this.state.popupShown && (
+          <Popup
+            events={this.state.events}
+            onSave={this.onSave}
+            closePop={this.closePop}
+
+          />
+        )}
       </>)
   }
 };
