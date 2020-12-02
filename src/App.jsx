@@ -61,8 +61,7 @@ class App extends Component {
       dateFrom,
       description,
     }
-    createEvent(newEvent).then(() => this.fetchTasksList()
-    );
+    createEvent(newEvent).then(() => this.fetchEvents());
   };
 
 
@@ -125,7 +124,7 @@ class App extends Component {
         />
         {this.state.popupShown && (
           <Popup
-            // events={this.state.events}
+            events={this.state.events}
             onSave={this.onSave}
             closePop={this.closePop}
 
