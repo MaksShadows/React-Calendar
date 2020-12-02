@@ -41,7 +41,15 @@ class Popup extends Component {
     const newObj = [...Object.entries(formData)];
 
 
-    this.props.onSave();
+    this.props.onSave(this.state);
+    this.setState({
+      name: "",
+      dateStart: "",
+      dateTo: "",
+      dateFrom: "",
+      description: "",
+    });
+
     this.props.closePop();
 
     console.log(newObj);
