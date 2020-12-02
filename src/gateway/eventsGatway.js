@@ -1,4 +1,4 @@
-const baseUrl = 'https://5f6b37f901d6570016d0443d.mockapi.io/api/v1/events';
+const baseUrl = 'https://5f6b37f901d6570016d0443d.mockapi.io/api/v1/event/';
 
 export const createEvent = taskData => {
     return fetch(baseUrl, {
