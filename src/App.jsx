@@ -23,6 +23,7 @@ class App extends Component {
     dateTo: "",
     dateFrom: "",
     description: "",
+
   }
 
   componentDidMount() {
@@ -62,6 +63,14 @@ class App extends Component {
       description,
     }
     createEvent(newEvent).then(() => this.fetchEvents());
+  };
+
+  handleChange = event => {
+    let { name, value } = event.target;
+    this.setState({
+      ...this.state,
+      [name]: value
+    });
   };
 
 
@@ -124,7 +133,8 @@ class App extends Component {
         />
         {this.state.popupShown && (
           <Popup
-            events={this.state.events}
+            newEvent={this.state}
+            handleChange={this.handleChange}
             onSave={this.onSave}
             closePop={this.closePop}
 

@@ -5,29 +5,29 @@ import PropTypes from 'prop-types';
 class Popup extends Component {
 
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      dateStart: "",
-      dateTo: "",
-      dateFrom: "",
-      description: "",
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     newEvent: {
+  //       name: "",
+  //       dateStart: "",
+  //       dateTo: "",
+  //       dateFrom: "",
+  //       description: "",
+  //     }
+  //   };
+  // }
 
 
-
-
-  handleChange = event => {
-    let { name, value } = event.target;
-
-    this.setState({
-      ...this.state,
-      [name]: value,
-
-    });
-  };
+  // handleChange = event => {
+  //   let { name, value } = event.target;
+  //   this.setState({
+  //     newEvent: {
+  //       ...this.state.newEvent,
+  //       [name]: value
+  //     }
+  //   });
+  // };
 
 
   handleSubmit = (event) => {
@@ -42,7 +42,7 @@ class Popup extends Component {
     const newObj = [...Object.entries(formData)];
 
 
-    this.props.onSave(this.state);
+    this.props.onSave();
 
 
     this.props.closePop();
@@ -57,43 +57,43 @@ class Popup extends Component {
 
 
   render() {
-    const { closePop, } = this.props;
+    const { closePop, newEvent, handleChange } = this.props;
     return (
       <div className="popup-layer">
         <form className="popup event" onSubmit={this.handleSubmit} >
           <span className="popup__btn-close" onClick={closePop} ><img className="close" src="https://img.icons8.com/color/48/000000/close-window.png" alt="close" /></span>
           <input className="event__name"
-            value={this.state.name}
-            onChange={this.handleChange}
+            value={newEvent.name}
+            onChange={handleChange}
             name="name"
             type="text"
             placeholder="Add title " />
           <div className="popup__picker">
             <input className="event__date-start input"
-              onChange={this.handleChange}
+              onChange={handleChange}
               name="dateStart" required type="date"
-              value={this.state.dateStart}
+              value={newEvent.dateStart}
             />
             <input type="time"
               className="startTime_place input"
               name="dateFrom"
-              onChange={this.handleChange}
-              value={this.state.dateFrom}
+              onChange={handleChange}
+              value={newEvent.dateFrom}
             />
             <span className='line'></span>
             <input type="time"
               className="endTime_place input"
               name="dateTo"
-              onChange={this.handleChange}
-              value={this.state.dateTo}
+              onChange={handleChange}
+              value={newEvent.dateTo}
             />
           </div>
           <div className="centerData">
             <img className="multiline" src="https://img.icons8.com/windows/32/000000/multiline-text.png" alt="mutiline" />
             <textarea type="text"
               className="multiline__text"
-              onChange={this.handleChange}
-              value={this.state.description}
+              onChange={handleChange}
+              value={newEvent.description}
               placeholder="Add description"
               name="description" cols="30" rows="3"></textarea>
           </div>
