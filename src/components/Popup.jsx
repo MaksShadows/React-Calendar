@@ -23,6 +23,7 @@ class Popup extends Component {
     let { name, value } = event.target;
 
     this.setState({
+      ...this.state,
       [name]: value,
 
     });
@@ -42,13 +43,7 @@ class Popup extends Component {
 
 
     this.props.onSave(this.state);
-    this.setState({
-      name: "",
-      dateStart: "",
-      dateTo: "",
-      dateFrom: "",
-      description: "",
-    });
+
 
     this.props.closePop();
 

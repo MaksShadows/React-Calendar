@@ -61,7 +61,8 @@ class App extends Component {
       dateFrom,
       description,
     }
-    createEvent(newEvent).then(() => this.fetchTasksList());
+    createEvent(newEvent).then(() => this.fetchTasksList()
+    );
   };
 
 
