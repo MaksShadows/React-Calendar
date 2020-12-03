@@ -62,12 +62,11 @@ class App extends Component {
       dateFrom,
       description,
     };
-    createEvent(newEvent).then(() => this.fetchEvents()
-      .then(events => {
-        this.setState({
-          events: events
-        })
-      }));
+    createEvent(newEvent).then(() => this.fetchEvents().then(() => {
+      this.setState({
+        ...this.state
+      })
+    }));
   };
 
   handleChange = event => {
