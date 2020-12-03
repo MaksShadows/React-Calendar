@@ -4,7 +4,7 @@ export const createEvent = taskData => {
     return fetch(baseUrl, {
         method: "POST",
         headers: {
-            "Content-type": "application/json;charset=utf-8",
+            'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify(taskData),
     })
