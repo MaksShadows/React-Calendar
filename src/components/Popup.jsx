@@ -43,8 +43,6 @@ class Popup extends Component {
 
 
     this.props.onSave();
-
-
     this.props.closePop();
 
     console.log(newObj);
