@@ -23,7 +23,6 @@ class App extends Component {
     dateTo: "",
     dateFrom: "",
     description: "",
-
   }
 
   componentDidMount() {
@@ -45,25 +44,25 @@ class App extends Component {
     );
   };
 
-  onSave = () => {
-    //event.preventDefault();
+  // onSave = () => {
+  //   //event.preventDefault();
 
-    const {
-      name,
-      dateStart,
-      dateTo,
-      dateFrom,
-      description,
-    } = this.state
-    const newEvent = {
-      name,
-      dateStart,
-      dateTo,
-      dateFrom,
-      description,
-    };
-    createEvent(newEvent).then(() => this.fetchEvents());
-  };
+  //   const {
+  //     name,
+  //     dateStart,
+  //     dateTo,
+  //     dateFrom,
+  //     description,
+  //   } = this.state
+  //   const newEvent = {
+  //     name,
+  //     dateStart,
+  //     dateTo,
+  //     dateFrom,
+  //     description,
+  //   };
+  //   createEvent(newEvent).then(() => this.fetchEvents());
+  // };
 
   handleChange = event => {
     let { name, value } = event.target;
@@ -72,6 +71,21 @@ class App extends Component {
       [name]: value
     });
   };
+
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const formElem = document.querySelector('.popup');
+
+    const formData = Object.fromEntries(new FormData(formElem));
+
+    const newObj = [...Object.entries(formData)];
+    console.log(newObj);
+
+
+    this.closePop();
+    createEvent(this.state).then(fetchTasksList());
+  }
 
 
   handlePopup = () => {
@@ -135,7 +149,8 @@ class App extends Component {
           <Popup
             newEvent={this.state}
             handleChange={this.handleChange}
-            onSave={this.onSave}
+            handleSubmit={this.handleSubmit}
+            //onSave={this.onSave}
             closePop={this.closePop}
 
           />

@@ -29,36 +29,39 @@ class Popup extends Component {
   //   });
   // };
 
-
-  handleSubmit = (event) => {
-
-
-    event.preventDefault();
-
-    const formElem = document.querySelector('.popup');
-
-    const formData = Object.fromEntries(new FormData(formElem));
-
-    const newObj = [...Object.entries(formData)];
+  // handleSubmit = (event) => {
 
 
-    this.props.onSave();
-    this.props.closePop();
+  //   event.preventDefault();
 
-    console.log(newObj);
+  //   const formElem = document.querySelector('.popup');
+
+  //   const formData = Object.fromEntries(new FormData(formElem));
+
+  //   const newObj = [...Object.entries(formData)];
 
 
-    //cчитать форму в обьект +
-    //сохранить обьект в массиве +
+  //   this.props.onSave();
+  //   this.props.closePop();
 
-  }
+  //   console.log(newObj);
+
+
+  //   //cчитать форму в обьект +
+  //   //сохранить обьект в массиве +
+
+  // }
 
 
   render() {
-    const { closePop, newEvent, handleChange } = this.props;
+    const
+      { closePop, newEvent, handleChange,
+        handleSubmit
+      } = this.props;
     return (
       <div className="popup-layer">
-        <form className="popup event" onSubmit={this.handleSubmit} >
+        <form className="popup event"
+          onSubmit={handleSubmit} >
           <span className="popup__btn-close" onClick={closePop} ><img className="close" src="https://img.icons8.com/color/48/000000/close-window.png" alt="close" /></span>
           <input className="event__name"
             value={newEvent.name}

@@ -9,24 +9,25 @@ class RedLine extends Component {
   };
 
   componentDidMount() {
-     this.timeRed =  setInterval(() => {
+    this.timeRed = setInterval(() => {
       this.setState({
         hourRedLine: new Date().getHours(),
         minRedLine: new Date().getMinutes(),
       });
-    }, 5000);
+    }, 60000);
   }
   componentWillUnmount() {
     clearInterval(this.timeRed);
-}
+  }
 
   render() {
-    const { hourRedLine, minRedLine} = this.state;
+    const { hourRedLine, minRedLine } = this.state;
 
-   const style = `${hourRedLine  - minRedLine / (100/60)}px`;
+
+    const style = `${hourRedLine + minRedLine * (60 / 1000)}px`;
 
     return (
-      <div className="redLine" style={{top: style}}></div>
+      <div className="redLine" style={{ top: style }}></div>
     )
   }
 };
