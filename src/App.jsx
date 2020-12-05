@@ -31,62 +31,80 @@ class App extends Component {
   }
 
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.events === this.state.events) {
+  //     fetchTasksList().then(events =>
+  //       this.setState({
+  //         events: events,
+  //       }),
+  //     );
+  //   }
+  // }
+
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.events === this.state.events) {
-      fetchTasksList().then(events =>
-        this.setState({
-          events: events,
-        }),
-      );
-    }
+    if (prevState.events === this.state.events) this.fetchEvents();
 
   }
 
 
   fetchEvents = () => {
-    fetchTasksList().then(events =>
+    fetchTasksList().then(eventsList =>
       this.setState({
-        events: events,
+        events: eventsList,
       }),
     );
   };
 
-  onSave = () => {
+  // onSave = () => {
+  //   //event.preventDefault();
+
+  //   // const {
+  //   //   name,
+  //   //   dateStart,
+  //   //   dateTo,
+  //   //   dateFrom,
+  //   //   description,
+  //   // } = this.state
+  //   // const newEvent = {
+  //   //   name,
+  //   //   dateStart,
+  //   //   dateTo,
+  //   //   dateFrom,
+  //   //   description,
+  //   // };
+
+  //   createEvent(this.state)
+  //     .then(fetchTasksList()
+  //       .then(events => {
+  //         this.setState({
+  //           ...this.state,
+  //           events: events,
+  //         })
+  //       })
+  //     )
+  // };
+  onSave = (taskData) => {
     //event.preventDefault();
 
-    // const {
-    //   name,
-    //   dateStart,
-    //   dateTo,
-    //   dateFrom,
-    //   description,
-    // } = this.state
     // const newEvent = {
-    //   name,
-    //   dateStart,
-    //   dateTo,
-    //   dateFrom,
-    //   description,
-    // };
+    // title,
+    // name: "",
+    // dateStart: "",
+    // dateTo: "",
+    // dateFrom: "",
+    // description: ""
+    //};
 
-    createEvent(this.state)
-      .then(fetchTasksList()
-        .then(events => {
-          this.setState({
-            ...this.state,
-            events: events,
-          })
-        })
-      )
+    createEvent(taskData).then(() => this.fetchEvents());
   };
 
-  handleChange = event => {
-    let { name, value } = event.target;
-    this.setState({
-      ...this.state,
-      [name]: value
-    });
-  };
+  // handleChange = event => {
+  //   let { name, value } = event.target;
+  //   this.setState({
+  //     ...this.state,
+  //     [name]: value
+  //   });
+  // };
 
 
   handleSubmit = (event) => {
@@ -100,7 +118,7 @@ class App extends Component {
 
 
     this.closePop();
-    this.onSave();
+    //this.onSave();
     //  createEvent(this.state).then(fetchTasksList());
   }
 
@@ -164,10 +182,10 @@ class App extends Component {
         />
         {this.state.popupShown && (
           <Popup
-            newEvent={this.state}
-            handleChange={this.handleChange}
+            // newEvent={this.state}
+            // handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
-            //onSave={this.onSave}
+            onSave={this.onSave}
             closePop={this.closePop}
 
           />

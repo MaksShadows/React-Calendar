@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 
 
-const Day = ({ dataDay, dayStart, dayEvents, events, onDeleteEvent }) => {
+const Day = ({ dataDay, dayStart, dayEvents, onDeleteEvent }) => {
     const hours = Array(24).fill().map((val, index) => index);
 
     return (
         <div className="column-day" data-day={dataDay}>
-            {hours.map(hour => {
+            {hours.map((events, hour) => {
                 //getting all events from the day we will render
                 const hourEvents = dayEvents.filter(event => event.dateFrom.getHours() === hour);
 

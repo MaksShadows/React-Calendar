@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 
 class Main extends Component {
 
-  //  state = {
-  //       events,
-  //   }
+  state = {
+    events: [],
+  }
 
   render() {
     const { showPopup, week, weekStart, onDeleteEvent,
@@ -26,7 +26,7 @@ class Main extends Component {
           <SaidBar />
           <Week weekStart={weekStart}
             onDeleteEvent={onDeleteEvent}
-            events={this.props.events}
+            events={this.state.events}
           />
         </div>
       </section>
