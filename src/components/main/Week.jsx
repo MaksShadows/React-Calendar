@@ -4,7 +4,7 @@ import Day from './Day';
 import PropTypes from 'prop-types';
 
 
-const Week = ({ weekStart, events }) => {
+const Week = ({ weekStart, events, }) => {
 
     return (
         <>

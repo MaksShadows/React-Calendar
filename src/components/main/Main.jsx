@@ -9,13 +9,13 @@ import PropTypes from 'prop-types';
 
 class Main extends Component {
 
-  state = {
-    events: [],
-  }
+  // state = {
+  //   events: [],
+  // }
 
   render() {
     const { showPopup, week, weekStart, onDeleteEvent,
-      //events
+      events
     } = this.props;
 
     return (
@@ -26,7 +26,7 @@ class Main extends Component {
           <SaidBar />
           <Week weekStart={weekStart}
             onDeleteEvent={onDeleteEvent}
-            events={this.state.events}
+            events={events}
           />
         </div>
       </section>

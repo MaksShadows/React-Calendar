@@ -5,23 +5,22 @@ import PropTypes from 'prop-types';
 class Popup extends Component {
 
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      name: "",
+      title: "",
       dateStart: "",
       dateTo: "",
       dateFrom: "",
       description: "",
     };
+    this.handleChange = this.handleChange.bind(this);
+
   }
 
-  handleChange = event => {
-    let { name, value } = event.target;
-    this.setState({
-      //...this.state,
-      [name]: value
-    });
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
+
   };
 
   handleTaskCreate = () => {
@@ -70,32 +69,32 @@ class Popup extends Component {
     return (
       <div className="popup-layer">
         <form className="popup event"
-          onSubmit={handleSubmit} >
+          onSubmit={handleSubmit}          >
           <span className="popup__btn-close" onClick={closePop} ><img className="close" src="https://img.icons8.com/color/48/000000/close-window.png" alt="close" /></span>
           <input className="event__name"
-            value={this.state.name}
+            value={this.state.value}
             onChange={this.handleChange}
-            name="name"
+            name="title"
             type="text"
             placeholder="Add title " />
           <div className="popup__picker">
             <input className="event__date-start input"
               onChange={this.handleChange}
               name="dateStart" required type="date"
-              value={this.state.dateStart}
+              value={this.state.value}
             />
             <input type="time"
               className="startTime_place input"
               name="dateFrom"
               onChange={this.handleChange}
-              value={this.state.dateFrom}
+              value={this.state.value}
             />
             <span className='line'></span>
             <input type="time"
               className="endTime_place input"
               name="dateTo"
               onChange={this.handleChange}
-              value={this.state.dateTo}
+              value={this.state.value}
             />
           </div>
           <div className="centerData">
@@ -103,7 +102,7 @@ class Popup extends Component {
             <textarea type="text"
               className="multiline__text"
               onChange={this.handleChange}
-              value={this.state.description}
+              value={this.state.value}
               placeholder="Add description"
               name="description" cols="30" rows="3"></textarea>
           </div>
