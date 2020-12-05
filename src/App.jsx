@@ -32,7 +32,14 @@ class App extends Component {
 
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.events === this.state.events) this.fetchEvents();
+    if (prevState.events === this.state.events) {
+      fetchTasksList().then(events =>
+        this.setState({
+          events: events,
+        }),
+      );
+    }
+
   }
 
 
@@ -44,25 +51,34 @@ class App extends Component {
     );
   };
 
-  // onSave = () => {
-  //   //event.preventDefault();
+  onSave = () => {
+    //event.preventDefault();
 
-  //   const {
-  //     name,
-  //     dateStart,
-  //     dateTo,
-  //     dateFrom,
-  //     description,
-  //   } = this.state
-  //   const newEvent = {
-  //     name,
-  //     dateStart,
-  //     dateTo,
-  //     dateFrom,
-  //     description,
-  //   };
-  //   createEvent(newEvent).then(() => this.fetchEvents());
-  // };
+    // const {
+    //   name,
+    //   dateStart,
+    //   dateTo,
+    //   dateFrom,
+    //   description,
+    // } = this.state
+    // const newEvent = {
+    //   name,
+    //   dateStart,
+    //   dateTo,
+    //   dateFrom,
+    //   description,
+    // };
+
+    createEvent(this.state)
+      .then(fetchTasksList()
+        .then(events => {
+          this.setState({
+            ...this.state,
+            events: events,
+          })
+        })
+      )
+  };
 
   handleChange = event => {
     let { name, value } = event.target;
@@ -84,7 +100,8 @@ class App extends Component {
 
 
     this.closePop();
-    createEvent(this.state).then(fetchTasksList());
+    this.onSave();
+    //  createEvent(this.state).then(fetchTasksList());
   }
 
 

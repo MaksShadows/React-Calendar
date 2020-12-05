@@ -1,43 +1,43 @@
 import React from "react";
 import Event from "../Event";
 import RedLine from "../main/RedLine";
-import  formatMins  from '../common/utilities.js';
+import formatMins from '../common/utilities.js';
 
 
 import moment from 'moment'
 
 
-const Hour = ({ dataHour, hourEvents, hour, dayStart,  onDeleteEvent, events }) => {
-
-    
-    const isRedLine =  moment(dayStart).format("YYYY-MM-DD") === moment().format("YYYY-MM-DD") && hour === new Date().getHours();
+const Hour = ({ dataHour, hourEvents, hour, dayStart, onDeleteEvent, }) => {
 
 
-  return (
-      <div className="column-item"  data-time={dataHour + 1}>
-          {/* if no events in the current hour nothing will render here */}
-          {hourEvents.map(({ id, dateFrom, dateTo, title, }) => {
-              const eventStart = `${dateFrom.getHours()}:${formatMins(dateFrom.getMinutes())}`;
-              const eventEnd = `${dateTo.getHours()}:${formatMins(dateTo.getMinutes())}`;
+    const isRedLine = moment(dayStart).format("YYYY-MM-DD") === moment().format("YYYY-MM-DD") && hour === new Date().getHours();
 
-              return (
-                  <Event
-                      key={id}
-                      id={Math.random()}
-                      {...events}
-                      //calculating event height = duration of event in minutes
-                      height={(dateTo.getTime() - dateFrom.getTime()) / (1000 * 60)}
-                      marginTop={dateFrom.getMinutes()}
-                      time={`${eventStart} - ${eventEnd}`}
-                      title={title}
-                      hourEvents={hourEvents}
-                      onDeleteEvent={onDeleteEvent}
-                  /> 
-              )
-          })}
-          {isRedLine && <RedLine />}
-      </div>
-  )
+
+    return (
+        <div className="column-item" data-time={dataHour + 1}>
+            {/* if no events in the current hour nothing will render here */}
+            {hourEvents.map(({ id, dateFrom, dateTo, title, events }) => {
+                const eventStart = `${dateFrom.getHours()}:${formatMins(dateFrom.getMinutes())}`;
+                const eventEnd = `${dateTo.getHours()}:${formatMins(dateTo.getMinutes())}`;
+
+                return (
+                    <Event
+                        key={id}
+                        id={Math.random()}
+                        events={events}
+                        //calculating event height = duration of event in minutes
+                        height={(dateTo.getTime() - dateFrom.getTime()) / (1000 * 60)}
+                        marginTop={dateFrom.getMinutes()}
+                        time={`${eventStart} - ${eventEnd}`}
+                        title={title}
+                        hourEvents={hourEvents}
+                        onDeleteEvent={onDeleteEvent}
+                    />
+                )
+            })}
+            {isRedLine && <RedLine />}
+        </div>
+    )
 }
 
 export default Hour;

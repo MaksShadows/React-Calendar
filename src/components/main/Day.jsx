@@ -4,29 +4,29 @@ import PropTypes from 'prop-types';
 
 
 
-const Day = ({ dataDay,  dayStart, dayEvents, events,  onDeleteEvent}) => {
-  const hours = Array(24).fill().map((val, index) => index);
+const Day = ({ dataDay, dayStart, dayEvents, events, onDeleteEvent }) => {
+    const hours = Array(24).fill().map((val, index) => index);
 
-  return (
-      <div className="column-day" data-day={dataDay}>
-          {hours.map(hour => {
-              //getting all events from the day we will render
-              const hourEvents = dayEvents.filter(event => event.dateFrom.getHours() === hour);
+    return (
+        <div className="column-day" data-day={dataDay}>
+            {hours.map(hour => {
+                //getting all events from the day we will render
+                const hourEvents = dayEvents.filter(event => event.dateFrom.getHours() === hour);
 
-              return (
-                  <Hour
-                      key={dataDay + hour}
-                      dataHour={hour}
-                      hour={hour}
-                      events={events}
-                      dayStart={dayStart}
-                      hourEvents={hourEvents}
-                      onDeleteEvent={onDeleteEvent}
-                  />
-              )
-          })}
-      </div>
-  )
+                return (
+                    <Hour
+                        key={dataDay + hour}
+                        dataHour={hour}
+                        hour={hour}
+                        events={events}
+                        dayStart={dayStart}
+                        hourEvents={hourEvents}
+                        onDeleteEvent={onDeleteEvent}
+                    />
+                )
+            })}
+        </div>
+    )
 }
 
 
@@ -34,5 +34,5 @@ export default Day;
 
 Day.propTypes = {
     events: PropTypes.array,
-    
-  };
+
+};

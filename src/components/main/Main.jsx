@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navigation  from './Navigation'
+import Navigation from './Navigation'
 import Week from './Week';
 import SaidBar from "./SaidBar.jsx";
 import PropTypes from 'prop-types';
@@ -14,22 +14,23 @@ class Main extends Component {
   //   }
 
   render() {
-      const { showPopup, week, weekStart, onDeleteEvent,
-       events
-        } = this.props;
+    const { showPopup, week, weekStart, onDeleteEvent,
+      //events
+    } = this.props;
 
-      return (
-      
-    <section className="main"  onClick={showPopup}>
-    <Navigation  week={week} />
-     <div className="main-wrapper">
-     <SaidBar />
-      <Week weekStart={weekStart}
-       onDeleteEvent={onDeleteEvent}
-       events={events}/> 
-     </div>
-   </section>
-      )
+    return (
+
+      <section className="main" onClick={showPopup}>
+        <Navigation week={week} />
+        <div className="main-wrapper">
+          <SaidBar />
+          <Week weekStart={weekStart}
+            onDeleteEvent={onDeleteEvent}
+            events={this.props.events}
+          />
+        </div>
+      </section>
+    )
   }
 }
 
