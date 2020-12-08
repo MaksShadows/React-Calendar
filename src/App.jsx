@@ -55,27 +55,27 @@ class App extends Component {
     );
   };
 
-  onSave = (taskData) => {
-    createEvent(taskData)
-      .then(() => this.fetchEvents())
-    this.closePop();
-
-  }
-
   // onSave = (taskData) => {
-  //   //event.preventDefault();
+  //   createEvent(taskData)
+  //     .then(() => this.fetchEvents())
+  //   this.closePop();
 
-  //   // const newEvent = {
-  //   // title,
-  //   // name: "",
-  //   // dateStart: "",
-  //   // dateTo: "",
-  //   // dateFrom: "",
-  //   // description: ""
-  //   //};
+  // }
 
-  //   createEvent(taskData).then(() => this.fetchEvents());
-  // };
+  onSave = (title) => {
+    //event.preventDefault();
+
+    const newEvent = {
+      title,
+      name: "",
+      dateStart: "",
+      dateTo: "",
+      dateFrom: "",
+      description: ""
+    };
+
+    createEvent(newEvent).then(() => this.fetchEvents());
+  };
 
   // handleChange = event => {
   //   let { name, value } = event.target;
