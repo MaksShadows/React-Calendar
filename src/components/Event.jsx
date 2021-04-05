@@ -14,7 +14,7 @@ import React from 'react';
             <div className="event__title">{title}</div>
            <div className="event__time">{time}</div>
            <div className="delete-event-btn"
-          onClick={() => onDeleteEvent(id)}
+          onClick={() => {onDeleteEvent(id)}}
            >
        <i className="Tiny material-icons material-icons-delete">delete</i>
        Delete
