@@ -48,11 +48,19 @@ class App extends Component {
 
 
   fetchEvents = () => {
-    fetchTasksList().then(eventsList =>
+    fetchTasksList().then(eventsList => {
+      // Re-Create dates
+      eventsList = eventsList.map(item => {
+        item.dateFrom = new Date(item.dateFrom);
+        item.dateTo = new Date(item.dateTo);
+        return item;
+      });
       this.setState({
         events: eventsList,
-      }),
-    );
+
+      })
+    });
+
   };
 
   // onSave = (taskData) => {
@@ -62,16 +70,17 @@ class App extends Component {
 
   // }
 
-  onSave = (title) => {
+  onSave = (taskData) => {
     //event.preventDefault();
 
     const newEvent = {
-      title,
+      // title: "",
       name: "",
       dateStart: "",
       dateTo: "",
       dateFrom: "",
-      description: ""
+      description: "",
+      ...taskData
     };
 
     createEvent(newEvent).then(() => this.fetchEvents());

@@ -24,14 +24,13 @@ class Popup extends Component {
   };
 
   handleTaskCreate = () => {
-    this.props.onSave({ ...this.state });
     this.props.closePop();
-    this.setState({
-      name: "",
-      dateStart: "",
-      dateTo: "",
-      dateFrom: "",
-      description: "",
+    this.props.onSave({
+      title: this.state.title,
+      dateStart: this.state.dateStart,
+      dateTo: new Date(`${this.state.dateStart}T${this.state.dateTo}`),
+      dateFrom: new Date(`${this.state.dateStart}T${this.state.dateFrom}`),
+      description: this.state.description
     });
   };
 
@@ -108,7 +107,7 @@ class Popup extends Component {
           </div>
           <div className="footer-popup">
             <button
-              type="submit"
+              type="button"
               onClick={this.handleTaskCreate}
               className="btn_save">Save</button>
             {/* <button className="delete-event ">

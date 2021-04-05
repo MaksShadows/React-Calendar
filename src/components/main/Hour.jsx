@@ -16,13 +16,13 @@ const Hour = ({ dataHour, hourEvents, hour, dayStart, onDeleteEvent, }) => {
     return (
         <div className="column-item" data-time={dataHour + 1}>
             {/* if no events in the current hour nothing will render here */}
-            {hourEvents.map(({ dateFrom, dateTo, title, event }) => {
+            {hourEvents.map(({ id, dateFrom, dateTo, title, event }) => {
                 const eventStart = `${dateFrom.getHours()}:${formatMins(dateFrom.getMinutes())}`;
                 const eventEnd = `${dateTo.getHours()}:${formatMins(dateTo.getMinutes())}`;
 
                 return (
                     <Event
-                        key={event.id}
+                        key={id}
                         id={Math.random()}
                         {...event}
                         //calculating event height = duration of event in minutes
