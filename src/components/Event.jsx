@@ -1,7 +1,11 @@
 import React from 'react';
 
 
-const Event = ({ height, marginTop, title, time, handleDeleteEvent, id }) => {
+
+const Event = ({ height, marginTop, title, time, handleDeleteEvent, event, id }) => {
+
+
+    // const { id } = event;
 
     const eventStyle = {
         height,
@@ -23,5 +27,6 @@ const Event = ({ height, marginTop, title, time, handleDeleteEvent, id }) => {
         </div>
     )
 }
+
 
 export default Event;

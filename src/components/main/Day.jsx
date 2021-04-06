@@ -18,7 +18,7 @@ const Day = ({ dataDay, dayStart, dayEvents, handleDeleteEvent }) => {
                         key={dataDay + hour}
                         dataHour={hour}
                         hour={hour}
-                        events={events}
+                        // events={events}
                         dayStart={dayStart}
                         hourEvents={hourEvents}
                         handleDeleteEvent={handleDeleteEvent}

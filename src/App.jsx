@@ -14,8 +14,6 @@ class App extends Component {
 
   state = {
     popupShown: false,
-    isDeleteOpen: false,
-    eventForDelete: null,
     monday: 0,
     months: moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
@@ -159,7 +157,7 @@ class App extends Component {
 
   handleDeleteEvent = (id) => {
     deleteEvent(id).then((responce) => {
-      //console.log(responce)
+      console.log(responce)
       return this.fetchEvents()
     });
     // deleteEvent(id).then(() => this.fetchEvents());
