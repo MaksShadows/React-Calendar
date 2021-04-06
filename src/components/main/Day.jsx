@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 
-const Day = ({ dataDay, dayStart, dayEvents, onDeleteEvent }) => {
+const Day = ({ dataDay, dayStart, dayEvents, handleDeleteEvent }) => {
     const hours = Array(24).fill().map((val, index) => index);
 
     return (
@@ -21,7 +21,7 @@ const Day = ({ dataDay, dayStart, dayEvents, onDeleteEvent }) => {
                         events={events}
                         dayStart={dayStart}
                         hourEvents={hourEvents}
-                        onDeleteEvent={onDeleteEvent}
+                        handleDeleteEvent={handleDeleteEvent}
                     />
                 )
             })}

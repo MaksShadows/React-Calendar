@@ -107,7 +107,8 @@ class Popup extends Component {
           </div>
           <div className="footer-popup">
             <button
-              type="button"
+              //type="button"
+              type="submit"
               onClick={this.handleTaskCreate}
               className="btn_save">Save</button>
             {/* <button className="delete-event ">

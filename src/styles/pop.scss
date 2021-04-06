@@ -21,17 +21,19 @@
   padding: 20px 8px 16px 8px;
   border-radius: 8px;
   background-color: #fff;
+
   &__picker {
-      display: flex;
-      margin: 45px 10px;
-      align-items: center;
-      position: relative;
-      left: 7px;
+    display: flex;
+    margin: 45px 10px;
+    align-items: center;
+    position: relative;
+    left: 7px;
   }
+
   &__btn-close {
-      position: absolute;
-      right: 10px;
-      top: -3px;
+    position: absolute;
+    right: 10px;
+    top: -3px;
   }
 }
 
@@ -48,28 +50,31 @@
     margin-left: 10px;
 
   }
+
   &__description {
-      border: none;
+    border: none;
   }
+
   &__date-start,
   &__date-end {
-      padding: 2px;
-      margin-left: 18px;
-      border: none;
-      background-size: contain;
-      outline: none;
-      width: 150px;
+    padding: 2px;
+    margin-left: 18px;
+    border: none;
+    background-size: contain;
+    outline: none;
+    width: 150px;
   }
+
   &__time-start,
   &__time-end {
-      border: none;
-      background-size: contain;
-      outline: none;
-      padding: 2px;
-      background-color: #fff;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
+    border: none;
+    background-size: contain;
+    outline: none;
+    padding: 2px;
+    background-color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 }
 
@@ -85,7 +90,7 @@
   outline: none;
   position: absolute;
   bottom: 0px;
-  padding:  10px 20px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
@@ -105,14 +110,16 @@
 .multiline {
   margin: -35px 30px 0 14px;
   cursor: pointer;
+
   &__text {
-      color: rgb(53, 53, 56);
-      border: none;
-      margin-bottom: 10px;
+    color: rgb(53, 53, 56);
+    border: none;
+    margin-bottom: 10px;
   }
 
 }
-.centerData{
+
+.centerData {
   display: flex;
   align-items: center;
   //justify-content: space-around;
@@ -126,11 +133,11 @@
 }
 
 
-.btn_save{
+.btn_save {
   position: absolute;
   right: 10px;
   bottom: 10px;
-  padding:  10px 20px;
+  padding: 10px 20px;
   background: royalblue;
   color: white;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
@@ -139,10 +146,9 @@
   cursor: pointer;
 }
 
-.message_validation{
+.message_validation {
   color: red;
   margin: 0;
   margin-top: 10px;
   height: 1.2em;
 }
-

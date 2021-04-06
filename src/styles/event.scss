@@ -9,30 +9,109 @@
   flex-direction: column;
   align-items: center;
   padding: 8px;
-   z-index: 1 ;
+  z-index: 1;
+  opacity: 1;
+  transition: all ease-in-out 0.3s;
 
-   &:hover {
+  &:hover {
     font-weight: bold;
     background-color: red;
   }
+
 }
 
-.delete-event-btn {
-  display: none;
+.event__delete {
+  position: absolute;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  height: 35px;
+  right: 20%;
+  bottom: -35px;
+  font-size: 25px;
+  max-width: 200px;
+  width: 100%;
   cursor: pointer;
-  border: none;
+  display: none;
+  box-shadow: 1px 1px 10px #454648;
+  text-transform: capitalize;
 
 }
 
-.active_event:hover{
+.active_event:hover {
   width: 120%;
   height: 120%;
   color: white;
   z-index: 2;
 
- .delete-event-btn {
-     display: flex;
-     color: black;
-     z-index: 10;
-   }
+  .event__delete {
+    display: flex;
+    color: black;
+  }
 }
+
+// .active_event {
+//   position: absolute;
+//   left: 0;
+//   width: 85%;
+//   height: 85%;
+//   background: #c6dafc;
+//   opacity: 1;
+//   z-index: 1;
+//   border-radius: 5px;
+//   padding: 5px;
+//   transition: all ease-in-out 0.3s;
+//   font-size: 15px;
+
+//   &__delete {
+//     position: absolute;
+//     width: 100%;
+//     background: white;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 5px;
+//     border-radius: 5px;
+//     height: 35px;
+//     right: 20%;
+//     bottom: -35px;
+//     font-size: 25px;
+//     max-width: 200px;
+//     width: 100%;
+//     cursor: pointer;
+//     display: none;
+//     box-shadow: 1px 1px 10px #454648;
+//     text-transform: capitalize;
+
+//     &:hover {
+//       color: white !important;
+//       transition: all ease-in-out 0.3s;
+//       background: #454648;
+
+//     }
+//   }
+
+//   div {
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+//     padding: 2px;
+//   }
+// }
+
+// .event:hover {
+//   width: 120%;
+//   height: 120%;
+//   background: #1a73e8;
+//   color: white;
+//   z-index: 2;
+
+//   .event__delete {
+//     display: flex;
+//     color: #454648;
+//   }
+// }

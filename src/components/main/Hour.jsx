@@ -7,7 +7,7 @@ import formatMins from '../common/utilities.js';
 import moment from 'moment'
 
 
-const Hour = ({ dataHour, hourEvents, hour, dayStart, onDeleteEvent, }) => {
+const Hour = ({ dataHour, hourEvents, hour, dayStart, handleDeleteEvent }) => {
 
 
     const isRedLine = moment(dayStart).format("YYYY-MM-DD") === moment().format("YYYY-MM-DD") && hour === new Date().getHours();
@@ -31,7 +31,7 @@ const Hour = ({ dataHour, hourEvents, hour, dayStart, onDeleteEvent, }) => {
                         time={`${eventStart} - ${eventEnd}`}
                         title={title}
                         hourEvents={hourEvents}
-                        onDeleteEvent={onDeleteEvent}
+                        handleDeleteEvent={handleDeleteEvent}
                     />
                 )
             })}

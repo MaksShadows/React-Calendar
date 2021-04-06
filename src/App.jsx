@@ -14,6 +14,8 @@ class App extends Component {
 
   state = {
     popupShown: false,
+    isDeleteOpen: false,
+    eventForDelete: null,
     monday: 0,
     months: moment().startOf("isoWeek"),
     weekStart: generateWeekRange(getStartOfWeek(new Date())),
@@ -123,6 +125,14 @@ class App extends Component {
     });
   };
 
+  onDeleteModalOpen = (event, eventId) => {
+    event.stopPropagation();
+    this.setState({
+      isDeleteOpen: true,
+      eventForDelete: eventId,
+    });
+  };
+
   nextWeek = () => {
     this.setState({
       monday: this.state.monday + 7,
@@ -148,7 +158,11 @@ class App extends Component {
   };
 
   handleDeleteEvent = (id) => {
-    deleteEvent(id).then(() => this.fetchEvents());
+    deleteEvent(id).then((responce) => {
+      //console.log(responce)
+      return this.fetchEvents()
+    });
+    // deleteEvent(id).then(() => this.fetchEvents());
   };
 
   render() {
@@ -163,10 +177,9 @@ class App extends Component {
         />
         <Main weekStart={this.state.weekStart}
           week={this.state.monday}
-          showPopup={this.handlePopup}
+          // showPopup={this.handlePopup}
           events={this.state.events}
-          onDeleteEvent={this.handleDeleteEvent}
-
+          handleDeleteEvent={this.handleDeleteEvent}
         />
         {this.state.popupShown && (
           <Popup

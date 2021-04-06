@@ -14,7 +14,7 @@ class Main extends Component {
   // }
 
   render() {
-    const { showPopup, week, weekStart, onDeleteEvent,
+    const { showPopup, week, weekStart, handleDeleteEvent,
       events
     } = this.props;
 
@@ -25,7 +25,7 @@ class Main extends Component {
         <div className="main-wrapper">
           <SaidBar />
           <Week weekStart={weekStart}
-            onDeleteEvent={onDeleteEvent}
+            handleDeleteEvent={handleDeleteEvent}
             events={events}
           />
         </div>
